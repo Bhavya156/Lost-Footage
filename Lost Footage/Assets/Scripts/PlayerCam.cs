@@ -6,6 +6,8 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] float sensX;
     [SerializeField] float sensY;
 
+    [SerializeField] float rotationAngle;
+
     [SerializeField] Transform orientation;
 
     float xRotation;
@@ -27,7 +29,7 @@ public class PlayerCam : MonoBehaviour
         yRotation += mouseX;
         xRotation -= mouseY;
 
-        xRotation = Mathf.Clamp(xRotation, -89, 89);
+        xRotation = Mathf.Clamp(xRotation, -rotationAngle, rotationAngle);
 
         Debug.Log(mouseX);
 
