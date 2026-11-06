@@ -28,7 +28,6 @@ public class PlayerCam : MonoBehaviour
         xRotation -= mouseY;
 
         yRotation = Mathf.Clamp(yRotation, -89, 89);
-        xRotation = Mathf.Clamp(xRotation, -89, 89);
 
         Debug.Log(mouseX);
 
