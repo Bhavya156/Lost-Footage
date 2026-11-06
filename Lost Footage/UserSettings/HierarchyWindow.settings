@@ -18,7 +18,11 @@
         {
             "ColumnId": "HierarchyViewColumn Name",
             "Visible": true,
-            "Width": 310.8000183105469,
+<<<<<<< HEAD
+            "Width": 200.0,
+=======
+            "Width": 240.0,
+>>>>>>> origin/main
             "Index": 2
         },
         {
@@ -37,19 +41,19 @@
             "ColumnId": "GameObject/Tag",
             "Visible": false,
             "Width": 100.0,
-            "Index": 4
+            "Index": 5
         },
         {
             "ColumnId": "GameObject/Static",
             "Visible": false,
             "Width": 75.0,
-            "Index": 5
+            "Index": 6
         },
         {
             "ColumnId": "GameObject/Layer",
             "Visible": false,
             "Width": 150.0,
-            "Index": 6
+            "Index": 7
         }
     ],
     "ScrollPositionX": -1.0,
