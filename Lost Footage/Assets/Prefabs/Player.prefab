@@ -218,6 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCam
   sensX: 400
   sensY: 400
+  rotationAngle: 75
   orientation: {fileID: 1770529421713837823}
 --- !u!1 &2753697367214023904
 GameObject:
