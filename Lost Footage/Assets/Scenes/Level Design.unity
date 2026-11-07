@@ -862,17 +862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff57e3b706205d4286d23bdb0a579f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Snapping
---- !u!114 &1024305051 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 20678378005904420, guid: b5ab85b135797b44dba612d717737a11, type: 3}
-  m_PrefabInstance: {fileID: 6330247575300172390}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 902962d486562964bbf3aa118265a132, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!4 &1359996028 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7760497530499100253, guid: e1d88e0306a448543b8ce93a5f32a0ed, type: 3}
@@ -1404,18 +1393,6 @@ PrefabInstance:
       propertyPath: holdPoint
       value: 
       objectReference: {fileID: 1359996028}
-    - target: {fileID: 203690197259818563, guid: b5ab85b135797b44dba612d717737a11, type: 3}
-      propertyPath: cameraMover
-      value: 
-      objectReference: {fileID: 1024305051}
-    - target: {fileID: 203690197259818563, guid: b5ab85b135797b44dba612d717737a11, type: 3}
-      propertyPath: throwingForce
-      value: 900
-      objectReference: {fileID: 0}
-    - target: {fileID: 203690197259818563, guid: b5ab85b135797b44dba612d717737a11, type: 3}
-      propertyPath: timeToDespawn
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 203690197259818563, guid: b5ab85b135797b44dba612d717737a11, type: 3}
       propertyPath: cameraDeployer
       value: 
