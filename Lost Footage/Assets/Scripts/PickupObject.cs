@@ -57,7 +57,7 @@ public class PickupObject : MonoBehaviour
         if (isSnapping && grabbedObject != null)
         {
             grabbedRB.AddForce(snapForce * (holdPoint.position - grabbedObject.transform.position).normalized);
-            //grabbedRB.AddForce(-grabbedRB.linearVelocity / grabbedObjectDamping);
+            grabbedRB.AddForce(-grabbedRB.linearVelocity * grabbedObjectDamping);
         }
 
     }
