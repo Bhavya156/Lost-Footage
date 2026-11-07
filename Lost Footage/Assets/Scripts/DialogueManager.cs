@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private AudioSource typewriterAudio;
 
     public GameObject loadingUI;
-    string[] testLines = { "This is the boss talking, SUPER MR PENGUIN THE GREAT GOD OF JUSTICE", "You have to bring your footage AND BRING ME MORE MEIN KAMPTFS", "Otherwise you are FIRED! AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" };
+    string[] testLines = { "Where is the footage you were supposed to bring for the next online report?", "I trust that you have kept it safe.", "You’re lucky I even give you the time of day!", "You have one hour to get it on my desk!", "or else, YOU'RE FIRED!" };
     int index = 0;
     private void clickToNext(string[] lines)
     {
@@ -36,6 +36,10 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+
+        typewriter.ShowText(testLines[0]);
+        typewriterAudio.Play();
+        index++;
         loadingUI.SetActive(false);
     }
 

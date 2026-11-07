@@ -1,11 +1,26 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class SceneChanger : MonoBehaviour
 {
     [SerializeField] Slider loadingBar;
+    public static SceneChanger Instance;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void LoadGameScene(string gameSceneName)
     {
         SceneManager.LoadScene(gameSceneName);
@@ -13,7 +28,7 @@ public class SceneChanger : MonoBehaviour
 
     public IEnumerator LoadNextLevel()
     {
-        AsyncOperation loadLevel = SceneManager.LoadSceneAsync(1);
+        AsyncOperation loadLevel = SceneManager.LoadSceneAsync(2);
         loadLevel.allowSceneActivation = false;
 
         while (!loadLevel.isDone)
