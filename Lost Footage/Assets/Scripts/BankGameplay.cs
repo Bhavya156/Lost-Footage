@@ -6,6 +6,8 @@ public class BankGameplay : MonoBehaviour
     public GameObject bank;
     public GameObject bankBroken;
 
+    bool alreadyBroken;
+
     public ParticleSystem explosion1;
     public ParticleSystem explosion2;
 
@@ -19,11 +21,14 @@ public class BankGameplay : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Vehicle"))
+        if (!alreadyBroken)
         {
-            Debug.Log("WOAHHHHHH SOEMTHING HERE");
-            Debug.Log(other.GetComponent<Rigidbody>().linearVelocity.magnitude);
-            if(other.GetComponent<Rigidbody>().linearVelocity.magnitude >= requiredVelocity) ExplodeBank();
+            if (other.CompareTag("Vehicle"))
+            {
+                Debug.Log("WOAHHHHHH SOEMTHING HERE");
+                Debug.Log(other.GetComponent<Rigidbody>().linearVelocity.magnitude);
+                if (other.GetComponent<Rigidbody>().linearVelocity.magnitude >= requiredVelocity) ExplodeBank();
+            }
         }
     }
 
@@ -31,6 +36,8 @@ public class BankGameplay : MonoBehaviour
     {
         bank.SetActive(false);
         bankBroken.SetActive(true);
+
+        alreadyBroken = true;
 
         explosion1.Play();
         explosion2.Play();

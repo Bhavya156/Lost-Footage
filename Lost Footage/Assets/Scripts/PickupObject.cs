@@ -63,10 +63,12 @@ public class PickupObject : MonoBehaviour
 
             //Rigidbody rb = target.GetComponent<Rigidbody>();
             //rb.isKinematic = false;
-            if (grabbedObject.GetComponentInChildren<ParticleSystem>() != null)
-            {
-                grabbedObject.GetComponentInChildren<ParticleSystem>().Stop();
-            }
+            //if (grabbedObject.GetComponentInChildren<ParticleSystem>() != null)
+            //{
+            //    grabbedObject.GetComponentInChildren<ParticleSystem>().Stop();
+            //}
+
+            if (grabbedObject.gameObject.name == "jetMissile") grabbedObject.GetComponent<MissileScript>().FireMissile();
 
             isSnapping = false;
             grabbedRB.AddForce(transform.forward * throwForce, ForceMode.Impulse);

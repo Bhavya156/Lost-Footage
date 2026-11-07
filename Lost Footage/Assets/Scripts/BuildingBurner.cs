@@ -14,7 +14,7 @@ public class BuildingBurner : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Flammable"))
+        if (other.CompareTag("Arson"))
         {
                 weBurning = true;
 
