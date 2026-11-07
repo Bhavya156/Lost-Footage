@@ -55,7 +55,10 @@ public class ScanInteractables : MonoBehaviour
 
     public void DisableUI(GameObject interactable)
     {
-        interactable.transform.Find("UI").gameObject.SetActive(false);
+        if (interactable.transform.Find("UI") != null)
+        {
+            interactable.transform.Find("UI").gameObject.SetActive(false);
+        }
     }
 
     void OnTriggerExit(Collider other)
