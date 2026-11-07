@@ -4,8 +4,11 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private TypewriterEffect typewriter;
+    [SerializeField] private SceneChanger sceneChanger;
+    [SerializeField] private AudioSource typewriterAudio;
 
-    string[] testLines = { "This is the boss talking", "You have to bring your footage", "Otherwise you are FIRED!" };
+    public GameObject loadingUI;
+    string[] testLines = { "This is the boss talking, SUPER MR PENGUIN THE GREAT GOD OF JUSTICE", "You have to bring your footage AND BRING ME MORE MEIN KAMPTFS", "Otherwise you are FIRED! AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" };
     int index = 0;
     private void clickToNext(string[] lines)
     {
@@ -20,11 +23,20 @@ public class DialogueManager : MonoBehaviour
         //StartDialogue(testLines);
         if (Input.GetMouseButtonDown(0))
         {
+            typewriterAudio.Play();
             clickToNext(testLines);
             index++;
+            if (index > testLines.Length)
+            {
+                loadingUI.SetActive(true);
+                StartCoroutine(sceneChanger.LoadNextLevel());
+            }
         }
-
     }
 
+    private void Start()
+    {
+        loadingUI.SetActive(false);
+    }
 
 }

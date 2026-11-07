@@ -8,6 +8,9 @@ public class TypewriterEffect : MonoBehaviour
     [Tooltip("Characters revealed per second")]
     [SerializeField] private float charactersPerSecond = 20f;
 
+    [SerializeField] private AudioSource typewriterSound;
+    [SerializeField] private AudioSource backgroundSound;
+
     private TextMeshProUGUI _textComponent;
     private Coroutine _typingCoroutine;
 
@@ -41,6 +44,8 @@ public class TypewriterEffect : MonoBehaviour
         int totalCharacters = _textComponent.textInfo.characterCount;
         float delay = 1f / charactersPerSecond;
 
+        backgroundSound.volume = 0.1f;
+
         for (int i = 0; i < totalCharacters; i++)
         {
             _textComponent.maxVisibleCharacters = i + 1;
@@ -50,6 +55,8 @@ public class TypewriterEffect : MonoBehaviour
         // Ensure everything is visible at the end
         _textComponent.maxVisibleCharacters = totalCharacters;
         _typingCoroutine = null;
+        typewriterSound.Stop();
+        backgroundSound.volume = 0.5f;
     }
 
     /// <summary>
