@@ -17,6 +17,12 @@ public class PickupObject : MonoBehaviour
     [SerializeField] float snapForce;
     [SerializeField] float grabbedObjectDamping;
 
+    // void Start()
+    // {
+    //     if (grabbedObject != null) grabbedObject = null;
+    //     isSnapping = false;
+    // }
+
     private void Update()
     {
         if (isInside && Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
@@ -29,23 +35,26 @@ public class PickupObject : MonoBehaviour
                 //target.transform.localPosition = Vector3.zero;
                 //target.GetComponent<Rigidbody>().isKinematic = true;
 
-                Debug.Log("YEAH!");
+                Debug.Log("Grabbed Object");
                 isSnapping = true;
                 grabbedObject = target;
                 grabbedRB = targetRB;
             }
         }
-        else if (Input.GetMouseButtonDown(1))// && target != null && target.transform.parent == holdPoint)
+        else if (Input.GetMouseButtonDown(1) && grabbedObject != null)// && target != null && target.transform.parent == holdPoint)
         {
             
             //Rigidbody rb = target.GetComponent<Rigidbody>();
             //rb.isKinematic = false;
             isSnapping = false;
             grabbedRB.AddForce(transform.forward * throwForce, ForceMode.Impulse);
+            grabbedObject = null;
+            grabbedRB = null;
+            Debug.Log("Released Object");
             //target.transform.SetParent(null);
         }
 
-        if (isSnapping)
+        if (isSnapping && grabbedObject != null)
         {
             grabbedRB.AddForce(snapForce * (holdPoint.position - grabbedObject.transform.position).normalized);
             //grabbedRB.AddForce(-grabbedRB.linearVelocity / grabbedObjectDamping);

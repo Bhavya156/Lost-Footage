@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 0
   m_Name: HoldPosition
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: 84ea9d5414135e7428961d0e3609c7e7, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 453667045533027630}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.19999999, z: 1.244}
+  m_LocalPosition: {x: 0, y: -0.19999999, z: 2.141}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -329,6 +329,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickupObject
   player: {fileID: 1276191718512399128}
   holdPoint: {fileID: 4581746845924046516}
+  target: {fileID: 0}
+  grabbedObject: {fileID: 0}
+  throwForce: 50
+  snapForce: 15
+  grabbedObjectDamping: 0
 --- !u!1 &2338810960889397897
 GameObject:
   m_ObjectHideFlags: 0
