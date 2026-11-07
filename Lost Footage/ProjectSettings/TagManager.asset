@@ -9,7 +9,7 @@ TagManager:
   - Igniter
   - Vehicle
   - Arson
-  - Cat
+  - Floor
   layers:
   - Default
   - TransparentFX

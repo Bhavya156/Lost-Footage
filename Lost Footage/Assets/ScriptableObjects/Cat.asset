@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Cat
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableClass
   interactableObject: {fileID: 5888529771189319978, guid: 761287f4b16c7f34e8a4eb7f1cb21855, type: 3}
-  spawnPosition: {x: 5, y: 5, z: 5}
-  countToSpawn: 5
+  spawnPosition: {x: -20, y: 5, z: -5}
+  countToSpawn: 2
   interactableName: Cat
   interactableDialogue: Meowww! Bitcchhh!
-  gifImage: {fileID: 0}
