@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efd5635f4d680844a4c379deb0c91f3, type: 3}
+  m_Name: Cat
+  m_EditorClassIdentifier: Assembly-CSharp::ScriptableClass
+  interactableObject: {fileID: 5888529771189319978, guid: 761287f4b16c7f34e8a4eb7f1cb21855, type: 3}
+  spawnPosition: {x: 5, y: 5, z: 5}
+  countToSpawn: 5
+  interactableName: Cat
+  interactableDialogue: Meowww! Bitcchhh!
+  gifImage: {fileID: 0}

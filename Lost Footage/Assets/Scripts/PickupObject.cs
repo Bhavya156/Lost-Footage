@@ -17,6 +17,8 @@ public class PickupObject : MonoBehaviour
     [SerializeField] float snapForce;
     [SerializeField] float grabbedObjectDamping;
 
+    [SerializeField] private ScanInteractables scanInteractables;
+
     // void Start()
     // {
     //     if (grabbedObject != null) grabbedObject = null;
@@ -41,13 +43,8 @@ public class PickupObject : MonoBehaviour
                 grabbedRB = targetRB;
 
                 // Disable UI
-
-                Transform uiTransform = grabbedObject.transform.Find("UI(Clone)");
-                if (uiTransform != null)
-                {
-                    GameObject uiInstance = uiTransform.gameObject;
-                    uiInstance.SetActive(false);
-                }
+                scanInteractables.DisableUI(grabbedObject);
+                
             }
         }
         else if (Input.GetMouseButtonDown(1) && grabbedObject != null)// && target != null && target.transform.parent == holdPoint)
