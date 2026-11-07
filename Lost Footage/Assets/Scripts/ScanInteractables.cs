@@ -1,46 +1,65 @@
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+
 
 public class ScanInteractables : MonoBehaviour
 {
     public GameObject interactionUIprefab;
-    public List<GameObject> interactablesInRange = new List<GameObject>();
+
+    public SpawnManager spawnManager;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Interactable"))
         {
-            interactablesInRange.Add(other.gameObject);
-            InstantiateAndEnableUI(other.gameObject);
+            EnableUI(other.gameObject);
         }
     }
 
-    void InstantiateAndEnableUI(GameObject interactable)
+    GameObject uiInstance;
+    public void EnableUI(GameObject interactable)
     {
-        GameObject uiInstance = Instantiate(interactionUIprefab, interactable.transform);
-        uiInstance.transform.position = interactable.transform.position + new Vector3(0, 1.5f, 0);
-        uiInstance.transform.rotation = interactable.transform.rotation;
-        uiInstance.SetActive(true);
+        //Find the interactable in the list and enable its UI
+        interactable.transform.Find("UI").gameObject.SetActive(true);
     }
 
-    void DisableAndDestroyUI(GameObject interactable)
+    void Update()
     {
-        Transform uiTransform = interactable.transform.Find(interactionUIprefab.name + "(Clone)");
-        Debug.Log("Disabling and destroying UI for " + interactionUIprefab.name);
-        if (uiTransform != null)
+        foreach (Interactable interactableInList in spawnManager.interactablesInRange)
         {
-            GameObject uiInstance = uiTransform.gameObject;
-            uiInstance.SetActive(false);
-            Destroy(uiInstance);
+            if (interactableInList.interactionUIgameObject != null &&
+                interactableInList.interactionUIgameObject.activeInHierarchy)
+            {
+                interactableInList.interactionUIgameObject.transform.position =
+                    interactableInList.interactableObject.transform.position
+                    + new Vector3(0, 1.5f, 0);
+            }
         }
+    }
+
+    public void ChangeDialogueText(GameObject interactable)
+    {
+       for (int i = 0; i < spawnManager.interactablesInRange.Count; i++)
+        {
+            if (interactable.name.Contains(spawnManager.interactablesInRange[i].id.ToString()))
+            {
+                spawnManager.interactablesInRange[i].dialogueField.text =
+                    spawnManager.interactablesInRange[i].snappedText;
+            }
+        }
+    }
+
+
+    public void DisableUI(GameObject interactable)
+    {
+        interactable.transform.Find("UI").gameObject.SetActive(false);
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Interactable"))
         {
-            interactablesInRange.Remove(other.gameObject);
-            DisableAndDestroyUI(other.gameObject);
+            DisableUI(other.gameObject);
             Debug.Log(other.name + " removed from list");
         }
     }
