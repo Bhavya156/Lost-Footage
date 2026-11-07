@@ -39,6 +39,16 @@ public class PickupObject : MonoBehaviour
                 isSnapping = true;
                 grabbedObject = target;
                 grabbedRB = targetRB;
+
+                // Disable UI
+
+                Transform uiTransform = grabbedObject.transform.Find("UI(Clone)");
+                if (uiTransform != null)
+                {
+                    GameObject uiInstance = uiTransform.gameObject;
+                    uiInstance.SetActive(false);
+                    Destroy(uiInstance);
+                }
             }
         }
         else if (Input.GetMouseButtonDown(1) && grabbedObject != null)// && target != null && target.transform.parent == holdPoint)
@@ -73,7 +83,7 @@ public class PickupObject : MonoBehaviour
             target = other.gameObject;
             targetRB = target.GetComponent<Rigidbody>();
 
-            Debug.Log(other.name);
+            Debug.Log(other.name + " nearby. Press E to interact");
         }
     }
 
