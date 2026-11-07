@@ -47,7 +47,6 @@ public class PickupObject : MonoBehaviour
                 {
                     GameObject uiInstance = uiTransform.gameObject;
                     uiInstance.SetActive(false);
-                    Destroy(uiInstance);
                 }
             }
         }
