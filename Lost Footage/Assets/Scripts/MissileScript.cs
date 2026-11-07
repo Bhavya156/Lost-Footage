@@ -30,9 +30,10 @@ public class MissileScript : MonoBehaviour
     {
         Vector3 fwd = transform.right;
 
-        if (Physics.Raycast(transform.position, fwd, 3))
+        if (isRunning && Physics.Raycast(transform.position, fwd, 1.5f))
         {
-            Instantiate(explosionPrefab);
+            GameObject explosion = Instantiate(explosionPrefab);
+            explosion.transform.position = transform.position;
             Destroy(gameObject);
         }
             
@@ -42,5 +43,6 @@ public class MissileScript : MonoBehaviour
     {
         jetEngine.Play();
         isRunning = true;
+        gameObject.tag = "Vehicle";
     }
 }

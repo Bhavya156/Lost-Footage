@@ -8,6 +8,7 @@ TagManager:
   - Flammable
   - Igniter
   - Vehicle
+  - Arson
   layers:
   - Default
   - TransparentFX
