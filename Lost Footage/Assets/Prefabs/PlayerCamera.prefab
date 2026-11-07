@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 203690197259818563}
   - component: {fileID: 5581790625696317631}
   - component: {fileID: 20678378005904420}
+  - component: {fileID: 6926071285597686482}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: Untagged
@@ -159,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   cameraDeployer: {fileID: 0}
   cameraMover: {fileID: 20678378005904420}
+  handicam: {fileID: 348067130676884979}
   timeToDespawn: 0.5
   throwingForce: 900
 --- !u!114 &5581790625696317631
@@ -193,6 +195,23 @@ MonoBehaviour:
   snapForce: 12000
   moveDamping: 9
   attachedCamera: {fileID: 348067130676884979}
+--- !u!114 &6926071285597686482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834707673697622301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c33ebbbe126f945b6ce02fd24d2f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::viewChecker
+  targetsToCheck:
+  - articleNo: 1
+    targetObjects:
+    - {fileID: 0}
+  camera: {fileID: 348067130676884979}
 --- !u!1 &8544808811738926530
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class GameplayCamera : MonoBehaviour
     Rigidbody rb;
     [SerializeField] Transform cameraDeployer;
     [SerializeField] CameraMover cameraMover;
+    [SerializeField] Camera handicam;
 
     bool thrown;
     float timer;
@@ -18,6 +19,8 @@ public class GameplayCamera : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         mr = GetComponent<MeshRenderer>();
+
+        handicam.gameObject.SetActive(false);
 
         inPlay = false;
         mr.enabled = false;
@@ -31,6 +34,7 @@ public class GameplayCamera : MonoBehaviour
             {
                 if (!inPlay)
                 {
+                    handicam.gameObject.SetActive(true);
                     mr.enabled = true;
                     cameraMover.enabled = true;
                     inPlay = true;
@@ -57,6 +61,7 @@ public class GameplayCamera : MonoBehaviour
                 timer = 0;
                 thrown = false;
                 inPlay = false;
+                handicam.gameObject.SetActive(false);
             }
         }
     }

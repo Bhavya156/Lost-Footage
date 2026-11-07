@@ -9,6 +9,8 @@ public class SpawnManager : MonoBehaviour
     public ScriptableClass scriptableObject;
     public List<Interactable> interactablesInRange = new List<Interactable>();
 
+    public viewChecker viewChecker;
+
     void Start()
     {
         for (int i = 0; i < scriptableObject.countToSpawn; i++)
@@ -28,6 +30,12 @@ public class SpawnManager : MonoBehaviour
         );
         GameObject spawnedInteractable = Instantiate(scriptableObject.interactableObject, spawnPosition, Quaternion.identity);
         spawnedInteractable.name = scriptableObject.interactableName + "_" + index;
+        Targets newTarget = viewChecker.targetsToCheck.Find(x => x.articleNo == 1);
+
+        if (newTarget != null)
+        {
+            newTarget.targetObjects.Add(spawnedInteractable);
+        }
         interactablesInRange.Add(new Interactable
         {
             id = index,
