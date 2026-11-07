@@ -36,27 +36,25 @@ public class PickupObject : MonoBehaviour
                 //target.transform.SetParent(holdPoint);
                 //target.transform.localPosition = Vector3.zero;
                 //target.GetComponent<Rigidbody>().isKinematic = true;
-
-                Debug.Log("Grabbed Object");
                 isSnapping = true;
                 grabbedObject = target;
                 grabbedRB = targetRB;
 
                 // Disable UI
 
-                Transform uiTransform = grabbedObject.transform.Find("UI(Clone)");
-                if (uiTransform != null)
-                {
-                    GameObject uiInstance = uiTransform.gameObject;
-                    uiInstance.SetActive(false);
-                    Destroy(uiInstance);
-                }
+                // Transform uiTransform = grabbedObject.transform.Find("UI(Clone)");
+                // if (uiTransform != null)
+                // {
+                //     GameObject uiInstance = uiTransform.gameObject;
+                //     uiInstance.SetActive(false);
+                //     Destroy(uiInstance);
+                // }
+                scanInteractables.DisableUI(grabbedObject);
 
                 if(grabbedObject.GetComponentInChildren<ParticleSystem>() != null)
                 {
                     grabbedObject.GetComponentInChildren<ParticleSystem>().Play();
                 }
-                scanInteractables.DisableUI(grabbedObject);
                 
             }
         }
@@ -74,7 +72,6 @@ public class PickupObject : MonoBehaviour
             grabbedRB.AddForce(transform.forward * throwForce, ForceMode.Impulse);
             grabbedObject = null;
             grabbedRB = null;
-            Debug.Log("Released Object");
             //target.transform.SetParent(null);
         }
 
@@ -96,8 +93,6 @@ public class PickupObject : MonoBehaviour
             isInside = true;
             target = other.gameObject;
             targetRB = target.GetComponent<Rigidbody>();
-
-            Debug.Log(other.name + " nearby. Press E to interact");
         }
     }
 

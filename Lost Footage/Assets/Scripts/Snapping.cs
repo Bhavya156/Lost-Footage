@@ -16,11 +16,6 @@ public class Snapping : MonoBehaviour
 
                 otherRB = other.GetComponent<Rigidbody>();
                 isSnapped = true;
-
-                //other.transform.SetParent(transform);
-                // other.transform.localPosition = Vector3.zero;
-                //other.GetComponent<Rigidbody>().isKinematic = true;
-                Debug.Log("Snapped Object");
             }
         }
     }
@@ -39,7 +34,6 @@ public class Snapping : MonoBehaviour
                 scanInteractables.ChangeDialogueText(otherRB.gameObject);
                 isUIEnabled = true;
             }
-            // scanInteractables.EnableUI(otherRB.gameObject);
         }
     }
 }

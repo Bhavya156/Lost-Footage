@@ -60,7 +60,6 @@ public class ScanInteractables : MonoBehaviour
         if (other.CompareTag("Interactable"))
         {
             DisableUI(other.gameObject);
-            Debug.Log(other.name + " removed from list");
         }
     }
 }
