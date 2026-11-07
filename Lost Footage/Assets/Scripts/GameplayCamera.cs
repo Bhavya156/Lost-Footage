@@ -1,3 +1,4 @@
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class GameplayCamera : MonoBehaviour
@@ -67,6 +68,11 @@ public class GameplayCamera : MonoBehaviour
                 thrown = false;
                 inPlay = false;
             }
+        }
+
+        if (inPlay && !thrown && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            GameManager.Instance.TakenPhoto(handicam);
         }
     }
 }

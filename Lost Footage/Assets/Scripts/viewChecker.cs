@@ -10,53 +10,65 @@ public class viewChecker : MonoBehaviour
     // [SerializeField] private GameObject target;
     [SerializeField] private Camera camera;
 
-    void Update()
-    {
-        CheckTargetByArticle(1);
-    }
+    //void Update()
+    //{
+    //    CheckTargetByArticle(1);
+    //}
 
-    void CheckTargetByArticle(int articleNo)
+    public bool IsVisible(GameObject targetObjects)
     {
-        switch(articleNo)
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
+        Renderer renderer = camera.GetComponent<Renderer>();
+
+        if (GeometryUtility.TestPlanesAABB(planes, renderer.bounds))
         {
-            case 1:
-                // element 0 from targetObjects list and random object from element 1 to 5
-                GameObject[] article1Obs = ReturnTargetObjects(0);
-
-                if (article1Obs != null)
-                {
-                    // if (article1Obs[0] && )
-                    Debug.Log("Article 1 is visible");
-                }
-                break;
-            case 2:
-                // Building on element 0 on targetObjects and fire on element 1
-                GameObject[] article2Obs = ReturnTargetObjects(1);
-
-                if (article2Obs != null && IsVisible(article2Obs))
-                {
-                    Debug.Log("Article 2 is visible");
-                }
-                break;
-            case 3:
-                // Bank robbery
-                GameObject[] article3Obs = ReturnTargetObjects(2);
-                if (article3Obs != null && IsVisible(article3Obs))
-                {
-                    Debug.Log("Article 3 is visible");
-                }
-                break;
-            default:
-                break;
+            return true;
         }
+        return false;
     }
 
-    GameObject[] ReturnTargetObjects(int index)
-    {
-        GameObject[] targObj = targetsToCheck[index].targetObjects.ToArray();
+    //void CheckTargetByArticle(int articleNo)
+    //{
+    //    switch(articleNo)
+    //    {
+    //        case 1:
+    //            // element 0 from targetObjects list and random object from element 1 to 5
+    //            GameObject[] article1Obs = ReturnTargetObjects(0);
 
-        return targObj;
-    }
+    //            if (article1Obs != null)
+    //            {
+    //                // if (article1Obs[0] && )
+    //                Debug.Log("Article 1 is visible");
+    //            }
+    //            break;
+    //        case 2:
+    //            // Building on element 0 on targetObjects and fire on element 1
+    //            GameObject[] article2Obs = ReturnTargetObjects(1);
+
+    //            if (article2Obs != null && IsVisible(article2Obs))
+    //            {
+    //                Debug.Log("Article 2 is visible");
+    //            }
+    //            break;
+    //        case 3:
+    //            // Bank robbery
+    //            GameObject[] article3Obs = ReturnTargetObjects(2);
+    //            if (article3Obs != null && IsVisible(article3Obs))
+    //            {
+    //                Debug.Log("Article 3 is visible");
+    //            }
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
+
+    //GameObject[] ReturnTargetObjects(int index)
+    //{
+    //    GameObject[] targObj = targetsToCheck[index].targetObjects.ToArray();
+
+    //    return targObj;
+    //}
 
     // private bool IsVisible()
     // {
@@ -64,38 +76,6 @@ public class viewChecker : MonoBehaviour
     //     // return planes.All(Plane => Plane.GetDistanceToPoint(target.transform.position) >= 0);
     //     return false;
     // }
-
-    private bool IsVisible(GameObject[] targetObjects)
-    {
-        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
-
-        foreach (GameObject obj in targetObjects)
-        {
-            if (obj == null || !obj.activeInHierarchy)
-                return false;
-
-            Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-
-            bool objectVisible = false;
-
-            foreach (Renderer rend in renderers)
-            {
-                if (GeometryUtility.TestPlanesAABB(planes, rend.bounds))
-                {
-                    objectVisible = true;
-                    break;
-                }
-            }
-
-            if (!objectVisible)
-            {
-                Debug.Log("Object not visible");
-                return false;
-            }
-        }
-
-        return true;
-    }
 }
 
 

@@ -22930,6 +22930,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1618415802}
     - target: {fileID: 203690197259818563, guid: b5ab85b135797b44dba612d717737a11, type: 3}
+      propertyPath: playerAnim
+      value: 
+      objectReference: {fileID: 915676397}
+    - target: {fileID: 203690197259818563, guid: b5ab85b135797b44dba612d717737a11, type: 3}
       propertyPath: cameraDeployer
       value: 
       objectReference: {fileID: 1618415802}

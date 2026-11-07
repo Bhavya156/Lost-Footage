@@ -16,15 +16,17 @@ public class BuildingBurner : MonoBehaviour
     {
         if (other.CompareTag("Arson"))
         {
-                weBurning = true;
+            weBurning = true;
 
-                Debug.Log("AAAAAAAAAAAAAAAAAAAAA WE BURNING Object");
+            GameManager.Instance.buildingBurning = true;
+            GameManager.Instance.AddBurningBuilding(gameObject);
 
-                burner1.Play();
-                burner2.Play();
-                burner3.Play();
-                burner4.Play();
+            Debug.Log("AAAAAAAAAAAAAAAAAAAAA WE BURNING Object");
 
+            burner1.Play();
+            burner2.Play();
+            burner3.Play();
+            burner4.Play();
         }
     }
 
