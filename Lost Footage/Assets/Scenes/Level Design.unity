@@ -734,18 +734,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1273604346345383472, guid: e1d88e0306a448543b8ce93a5f32a0ed, type: 3}
+      propertyPath: spawnManager
+      value: 
+      objectReference: {fileID: 653540887}
     - target: {fileID: 1276191718512399128, guid: e1d88e0306a448543b8ce93a5f32a0ed, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1626881678198223415, guid: e1d88e0306a448543b8ce93a5f32a0ed, type: 3}
-      propertyPath: scanInteractables
-      value: 
-      objectReference: {fileID: 795074211}
-    - target: {fileID: 1856032423380228201, guid: e1d88e0306a448543b8ce93a5f32a0ed, type: 3}
-      propertyPath: spawnManager
-      value: 
-      objectReference: {fileID: 653540887}
     - target: {fileID: 9141298309093014449, guid: e1d88e0306a448543b8ce93a5f32a0ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.64788
@@ -788,23 +784,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 9141298309093014449, guid: e1d88e0306a448543b8ce93a5f32a0ed, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 795074207}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1d88e0306a448543b8ce93a5f32a0ed, type: 3}
---- !u!114 &795074211 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1856032423380228201, guid: e1d88e0306a448543b8ce93a5f32a0ed, type: 3}
-  m_PrefabInstance: {fileID: 771841029}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e7f0d4e0b9d54444a0d937fc870af78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ScanInteractables
 --- !u!1 &917908095
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +912,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff57e3b706205d4286d23bdb0a579f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Snapping
-  scanInteractables: {fileID: 795074211}
+  scanInteractables: {fileID: 1630696533}
+--- !u!114 &1630696533 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1273604346345383472, guid: e1d88e0306a448543b8ce93a5f32a0ed, type: 3}
+  m_PrefabInstance: {fileID: 771841029}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7f0d4e0b9d54444a0d937fc870af78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScanInteractables
 --- !u!1 &1658349708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,7 +1283,6 @@ SceneRoots:
   - {fileID: 1705130353}
   - {fileID: 1780456506}
   - {fileID: 771841029}
-  - {fileID: 6330247575300172390}
   - {fileID: 463796488}
   - {fileID: 74150277}
   - {fileID: 170436680}
