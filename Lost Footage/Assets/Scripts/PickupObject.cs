@@ -90,7 +90,7 @@ public class PickupObject : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Interactable"))
+        if (other.CompareTag("Interactable") || other.CompareTag("Cat"))
         {
             isInside = true;
             target = other.gameObject;
@@ -100,7 +100,7 @@ public class PickupObject : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Interactable"))
+        if (other.CompareTag("Interactable") || other.CompareTag("Cat"))
         {
             isInside = false;
             if (target == other.gameObject) { target = null; targetRB = null; }
