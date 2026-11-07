@@ -1141,6 +1141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff57e3b706205d4286d23bdb0a579f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Snapping
+  scanInteractables: {fileID: 0}
 --- !u!1001 &999455318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1208,8 +1209,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 834707673697622301, guid: b5ab85b135797b44dba612d717737a11, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1087139033}
   m_SourcePrefab: {fileID: 100100000, guid: b5ab85b135797b44dba612d717737a11, type: 3}
+--- !u!1 &1087139024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 834707673697622301, guid: b5ab85b135797b44dba612d717737a11, type: 3}
+  m_PrefabInstance: {fileID: 999455318}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1087139033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087139024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c33ebbbe126f945b6ce02fd24d2f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  target: {fileID: 1801534249}
+  camera: {fileID: 1088184425}
+--- !u!20 &1088184425 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 348067130676884979, guid: b5ab85b135797b44dba612d717737a11, type: 3}
+  m_PrefabInstance: {fileID: 999455318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &1237817122 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8029894095652265035, guid: e1d88e0306a448543b8ce93a5f32a0ed, type: 3}
