@@ -49,13 +49,23 @@ public class PickupObject : MonoBehaviour
                     uiInstance.SetActive(false);
                     Destroy(uiInstance);
                 }
+
+                if(grabbedObject.GetComponentInChildren<ParticleSystem>() != null)
+                {
+                    grabbedObject.GetComponentInChildren<ParticleSystem>().Play();
+                }
             }
         }
         else if (Input.GetMouseButtonDown(1) && grabbedObject != null)// && target != null && target.transform.parent == holdPoint)
         {
-            
+
             //Rigidbody rb = target.GetComponent<Rigidbody>();
             //rb.isKinematic = false;
+            if (grabbedObject.GetComponentInChildren<ParticleSystem>() != null)
+            {
+                grabbedObject.GetComponentInChildren<ParticleSystem>().Stop();
+            }
+
             isSnapping = false;
             grabbedRB.AddForce(transform.forward * throwForce, ForceMode.Impulse);
             grabbedObject = null;
