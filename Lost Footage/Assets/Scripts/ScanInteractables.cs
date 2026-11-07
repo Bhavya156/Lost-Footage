@@ -10,7 +10,7 @@ public class ScanInteractables : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Interactable"))
+        if (other.CompareTag("Interactable") || other.CompareTag("Cat"))
         {
             EnableUI(other.gameObject);
         }
@@ -20,7 +20,10 @@ public class ScanInteractables : MonoBehaviour
     public void EnableUI(GameObject interactable)
     {
         //Find the interactable in the list and enable its UI
-        interactable.transform.Find("UI").gameObject.SetActive(true);
+        if (interactable.transform.Find("UI") != null)
+        {
+            interactable.transform.Find("UI").gameObject.SetActive(true);
+        }
     }
 
     void Update()
@@ -52,12 +55,15 @@ public class ScanInteractables : MonoBehaviour
 
     public void DisableUI(GameObject interactable)
     {
-        interactable.transform.Find("UI").gameObject.SetActive(false);
+        if (interactable.transform.Find("UI") != null)
+        {
+            interactable.transform.Find("UI").gameObject.SetActive(false);
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Interactable"))
+        if (other.CompareTag("Interactable") || other.CompareTag("Cat"))
         {
             DisableUI(other.gameObject);
         }
