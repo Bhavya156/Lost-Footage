@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class Snapping : MonoBehaviour
@@ -6,6 +7,14 @@ public class Snapping : MonoBehaviour
     Rigidbody otherRB;
     bool isSnapped;
     public ScanInteractables scanInteractables;
+
+    private void Start()
+    {
+        if (scanInteractables == null)
+        {
+            scanInteractables = FindAnyObjectByType<ScanInteractables>();
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -17,6 +26,18 @@ public class Snapping : MonoBehaviour
                 otherRB = other.GetComponent<Rigidbody>();
                 isSnapped = true;
             }
+        }
+        else if (other.CompareTag("Cat"))
+        {
+            if (other.GetComponent<Rigidbody>() != null)
+            {
+
+                otherRB = other.GetComponent<Rigidbody>();
+                isSnapped = true;
+            }
+
+            GameManager.Instance.catInTree = true;
+            GameManager.Instance.targetCat = otherRB.gameObject;
         }
     }
 
