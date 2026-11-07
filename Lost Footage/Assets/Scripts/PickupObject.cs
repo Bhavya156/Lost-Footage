@@ -54,12 +54,15 @@ public class PickupObject : MonoBehaviour
             //target.transform.SetParent(null);
         }
 
+    }
+
+    private void FixedUpdate()
+    {
         if (isSnapping && grabbedObject != null)
         {
             grabbedRB.AddForce(snapForce * (holdPoint.position - grabbedObject.transform.position).normalized);
             grabbedRB.AddForce(-grabbedRB.linearVelocity * grabbedObjectDamping);
         }
-
     }
 
     void OnTriggerEnter(Collider other)
