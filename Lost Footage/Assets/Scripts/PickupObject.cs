@@ -18,6 +18,7 @@ public class PickupObject : MonoBehaviour
     [SerializeField] float grabbedObjectDamping;
 
     [SerializeField] private ScanInteractables scanInteractables;
+    [SerializeField] private Animator playerAnimator;
 
     // void Start()
     // {
@@ -33,6 +34,7 @@ public class PickupObject : MonoBehaviour
 
             if (target != null)// && target.transform.parent != holdPoint)
             {
+                playerAnimator.SetBool("Grab", true);
                 //target.transform.SetParent(holdPoint);
                 //target.transform.localPosition = Vector3.zero;
                 //target.GetComponent<Rigidbody>().isKinematic = true;
@@ -74,6 +76,8 @@ public class PickupObject : MonoBehaviour
             grabbedRB.AddForce(transform.forward * throwForce, ForceMode.Impulse);
             grabbedObject = null;
             grabbedRB = null;
+
+            playerAnimator.SetBool("Grab", false);
             //target.transform.SetParent(null);
         }
 
