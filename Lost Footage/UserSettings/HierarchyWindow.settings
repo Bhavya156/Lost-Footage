@@ -18,7 +18,11 @@
         {
             "ColumnId": "HierarchyViewColumn Name",
             "Visible": true,
+<<<<<<< Updated upstream
             "Width": 249.20001220703125,
+=======
+            "Width": 262.0,
+>>>>>>> Stashed changes
             "Index": 2
         },
         {
