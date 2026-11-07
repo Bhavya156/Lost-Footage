@@ -24,9 +24,9 @@ public class SpawnManager : MonoBehaviour
     void SpawnInteractable(ScriptableClass scriptableObject)
     {
         Vector3 spawnPosition = new Vector3(
-            Random.Range(scriptableObject.spawnPosition.x - 5f, scriptableObject.spawnPosition.x + 5f), // X position range
+            Random.Range(scriptableObject.spawnPosition.x - 5f, scriptableObject.spawnPosition.x + 3f), // X position range
             scriptableObject.spawnPosition.y, // Y position from ScriptableObject
-            Random.Range(-scriptableObject.spawnPosition.z - 5f, scriptableObject.spawnPosition.z + 5f) // Z position range
+            Random.Range(-scriptableObject.spawnPosition.z - 5f, scriptableObject.spawnPosition.z + 3f) // Z position range
         );
         GameObject spawnedInteractable = Instantiate(scriptableObject.interactableObject, spawnPosition, Quaternion.identity);
         spawnedInteractable.name = scriptableObject.interactableName + "_" + index;
