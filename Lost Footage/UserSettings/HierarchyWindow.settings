@@ -18,7 +18,11 @@
         {
             "ColumnId": "HierarchyViewColumn Name",
             "Visible": true,
+<<<<<<< HEAD
             "Width": 334.79998779296875,
+=======
+            "Width": 249.20001220703125,
+>>>>>>> origin/Dev2
             "Index": 2
         },
         {
