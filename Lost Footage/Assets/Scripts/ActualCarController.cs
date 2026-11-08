@@ -23,6 +23,8 @@ public class ActualCarController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        if (character == null) character = GameObject.FindGameObjectWithTag("Player");
+        if (playerCollider == null) playerCollider = character.GetComponent<Collider>();
     }
 
     // Update is called once per frame

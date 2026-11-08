@@ -14,9 +14,14 @@ public class BuildingBurner : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Arson"))
+        if (!weBurning)
         {
+            if (other.CompareTag("Arson"))
+            {
                 weBurning = true;
+
+                GameManager.Instance.buildingBurning = true;
+                GameManager.Instance.AddBurningBuilding(gameObject);
 
                 Debug.Log("AAAAAAAAAAAAAAAAAAAAA WE BURNING Object");
 
@@ -24,7 +29,7 @@ public class BuildingBurner : MonoBehaviour
                 burner2.Play();
                 burner3.Play();
                 burner4.Play();
-
+            }
         }
     }
 
