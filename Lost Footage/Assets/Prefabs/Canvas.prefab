@@ -420,7 +420,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7329198820324845848}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -460,7 +460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3691348855430474475
 RectTransform:
   m_ObjectHideFlags: 0
@@ -470,7 +470,7 @@ RectTransform:
   m_GameObject: {fileID: 8633104901250252867}
   m_LocalRotation: {x: -0, y: -0, z: -0.051680595, w: 0.9986637}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.3699014, y: 2.3699014, z: 2.3698997}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 733592995931418649}
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: d903e4977c497c242b35c0677d739548, type: 2}
+  m_Texture: {fileID: 2800000, guid: 5e24d3ca061bf2b48a3e334c5cc4eab1, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -785,10 +785,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UiManager
   typewriterEffect: {fileID: 173937935829498688}
   dialogueBox: {fileID: 3725348291831522598}
+  pausePanel: {fileID: 0}
   pictureDisplay: {fileID: 6050141104076881632}
   pictureDisplayStartPos: {x: 0, y: 0, z: 0}
   pictureDisplayStartRot: {x: 0, y: 0, z: 0}
   pictureDisplayTargetPos: {fileID: 733592995931418649}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
+  uiSfxSlider: {fileID: 0}
+  ArticleTF: {fileID: 4687200372565317063}
+  article: {fileID: 3975208076537396273}
+  article1: {fileID: 21300000, guid: c64f1989883330c4189fb1d889e0265f, type: 3}
+  article2: {fileID: 21300000, guid: 763592ddbf6ff824abc235b4c066890f, type: 3}
+  article3: {fileID: 21300000, guid: a1932e6272ee07443baa0c831285fdad, type: 3}
+  isPaused: 0
 --- !u!1 &9148060188474057070
 GameObject:
   m_ObjectHideFlags: 0
