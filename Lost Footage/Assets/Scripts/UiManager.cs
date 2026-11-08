@@ -32,6 +32,9 @@ public class UiManager : MonoBehaviour
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject audioPanel;
+
     public RawImage pictureDisplay;
     public Vector3 pictureDisplayStartPos;
     public Vector3 pictureDisplayStartRot;
@@ -127,6 +130,20 @@ public class UiManager : MonoBehaviour
         Time.timeScale = 1f;
         CursorLockState(0);
         SceneChanger.Instance.LoadGameScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void OpenAudioPanel()
+    {
+        // AudioManager.Instance.OnBtnClickAudio();
+        optionsPanel.SetActive(false);
+        audioPanel.SetActive(true);
+    }
+
+    public void CloseAudioPanel()
+    {
+        // AudioManager.Instance.OnBtnClickAudio();
+        audioPanel.SetActive(false);
+        optionsPanel.SetActive(true);
     }
 
     public void MainMenuBtn()
