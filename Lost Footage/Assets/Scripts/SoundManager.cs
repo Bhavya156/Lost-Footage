@@ -8,7 +8,6 @@ public class SoundManager : MonoBehaviour
 
     [Header("Audio Mixer")]
     public AudioMixer master;
-    private bool isMuted = false;
     private float currentMusicVolume = 1f;
     private float currentSFXVolume = 1f;
     private float currentUISFXVolume = 1f;
@@ -90,21 +89,12 @@ public class SoundManager : MonoBehaviour
 
     public void ToggleMute()
     {
-        isMuted = !isMuted;
         ApplyVolumeToMixer();
         SavePreferences();
     }
 
     public void ApplyVolumeToMixer()
     {
-        if (isMuted)
-        {
-            master.SetFloat("Music", -80f);
-            master.SetFloat("SFX", -80f);
-            master.SetFloat("UISFX", -80f);
-            return;
-        }
-
         master.SetFloat("Music", SliderToDb(currentMusicVolume));
         master.SetFloat("SFX", SliderToDb(currentSFXVolume));
         master.SetFloat("UISFX", SliderToDb(currentUISFXVolume));
