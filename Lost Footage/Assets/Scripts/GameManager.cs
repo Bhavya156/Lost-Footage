@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
                         {
                             gameState = GameState.bankPhoto;
                             triggerPlane = true;
+                            Graphics.Blit(cameraRenderTexture, lastPhoto);
+                            UiManager.Instance.DisplayImage(lastPhoto);
                             //PUT TRANSITION HERE
                             break;
                         }
@@ -87,6 +89,8 @@ public class GameManager : MonoBehaviour
                     if (checkPhoto(bank, cameraTakingPhoto))
                     {
                         gameState = GameState.ending;
+                        Graphics.Blit(cameraRenderTexture, lastPhoto);
+                        UiManager.Instance.DisplayImage(lastPhoto);
                         //PUT TRANSITION HERE
                         break;
                     }

@@ -44,6 +44,10 @@ public class UiManager : MonoBehaviour
     public Slider uiSfxSlider;
 
     public RectTransform ArticleTF;
+    public Image article;
+    public Sprite article1;
+    public Sprite article2;
+    public Sprite article3;
     Vector3 articleTFStart;
 
     string[] gamedialogues = { "Oh no! I lost all the footage from the past few days.", "I have to to somehow get it back!", "Recreate the events displayed on top of the screen and then take a picture.", "Press [C] to have the camera online" };
@@ -154,7 +158,25 @@ public class UiManager : MonoBehaviour
         //article reappears
         else if(displayingImageTimer > 5f && displayingImageTimer < 6f)
         {
+            switch (GameManager.Instance.gameState)
+            {
+                case GameManager.GameState.firePhoto:
+                    article.sprite = article2;
+                    break;
+                case GameManager.GameState.bankPhoto:
+                    article.sprite = article3;
+                    break;
+            }
             ArticleTF.localPosition = articleTFStart - new Vector3(400, 0, 0) + new Vector3(400 * (displayingImageTimer - 5f), 0, 0);
+            pictureDisplay.gameObject.SetActive(false);
+            pictureDisplay.rectTransform.localPosition = pictureDisplayStartPos;
+            pictureDisplay.rectTransform.eulerAngles = pictureDisplayStartRot;
+            pictureDisplay.rectTransform.localScale = Vector3.one * 2.5f;
+        }
+        else if (displayingImageTimer >= 6f)
+        {
+            displayingImageTimer = 0;
+            displayingImage = false;
         }
     }
 
