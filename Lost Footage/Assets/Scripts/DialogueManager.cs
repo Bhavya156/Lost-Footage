@@ -5,10 +5,11 @@ public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private TypewriterEffect typewriter;
     [SerializeField] private SceneChanger sceneChanger;
-    [SerializeField] private AudioSource typewriterAudio;
+    // [SerializeField] private AudioSource typewriterAudio;
+    [SerializeField] private AudioClip bgmClip;
 
     public GameObject loadingUI;
-    string[] testLines = { "Where is the footage you were supposed to bring for the next online report?", "I trust that you have kept it safe.", "You�re lucky I even give you the time of day!", "You have one hour to get it on my desk!", "or else, YOU'RE FIRED!" };
+    string[] testLines = { "Where is the footage you were supposed to bring for the next online report?", "I trust that you have kept it safe.", "You're lucky I even give you the time of day!", "You have one hour to get it on my desk!", "or else, YOU'RE FIRED!" };
 
     // string[] gameLines = { "Oh no! I lost all the footage from the past few days.", "I have to to somehow get it back!", "Recreate the events displayed on top of the screen and then take a picture.", "Press [C] to have the camera online"};
     int index = 0;
@@ -25,7 +26,8 @@ public class DialogueManager : MonoBehaviour
         //StartDialogue(testLines);
         if (Input.GetMouseButtonDown(0))
         {
-            typewriterAudio.Play();
+            AudioManager.Instance.PlayTypeWriterAudio();
+            // typewriterAudio.Play();
             clickToNext(testLines);
             index++;
             if (index > testLines.Length)
@@ -38,9 +40,10 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-
+        AudioManager.Instance.bgmSource.clip = bgmClip;
+        AudioManager.Instance.bgmSource.Play();
         typewriter.ShowText(testLines[0]);
-        typewriterAudio.Play();
+        AudioManager.Instance.PlayTypeWriterAudio();
         index++;
         loadingUI.SetActive(false);
     }

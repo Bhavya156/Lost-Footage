@@ -14,12 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: c0322c073a2b3884ba03054320a85223
-  - enabled: 0
-    path: Assets/Scenes/Level Design.unity
-    guid: 0416f8524b275cd408e3537d4caf7bb6
-  - enabled: 0
-    path: Assets/Scenes/Game.unity
-    guid: f98ce94b80266d542a33b033be2cd40f
+  - enabled: 1
+    path: Assets/Scenes/Game 1.unity
+    guid: c63e9507aaa3ae54aaa90291793b849e
   - enabled: 1
     path: Assets/Scenes/BankRobberyMoment.unity
     guid: 154b5eeaab8b3254d919807f1fb4123d

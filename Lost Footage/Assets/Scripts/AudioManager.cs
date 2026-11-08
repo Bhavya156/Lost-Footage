@@ -15,8 +15,8 @@ public class AudioManager : MonoBehaviour
 
         Instance = this;
 
-        SoundManager.Instance.LoadPreferences();
-        SoundManager.Instance.ApplyVolumeToMixer();
+        // SoundManager.Instance.LoadPreferences();
+        // SoundManager.Instance.ApplyVolumeToMixer();
     }
 
     void Start()

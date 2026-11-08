@@ -15,6 +15,7 @@ public class JetMover : MonoBehaviour
 
     [SerializeField] ParticleSystem explosion1;
     [SerializeField] ParticleSystem explosion2;
+    [SerializeField] GameObject wallToDestroy;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,6 +52,7 @@ public class JetMover : MonoBehaviour
                     explosion2.Play();
                     explosionTime *= 2;
                     crashedPlaneMesh.gameObject.SetActive(true);
+                    wallToDestroy.SetActive(false);
                 }
             }
         }
