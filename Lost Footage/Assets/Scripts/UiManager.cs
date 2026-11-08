@@ -254,6 +254,7 @@ public class UiManager : MonoBehaviour
         }
         else if(endGameTimer > 8f)
         {
+            Cursor.lockState = CursorLockMode.None;
             SceneChanger.Instance.LoadGameScene(0);
             //load main menu and reset
         }
