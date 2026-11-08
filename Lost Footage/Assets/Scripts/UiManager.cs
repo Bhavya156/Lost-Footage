@@ -252,8 +252,9 @@ public class UiManager : MonoBehaviour
             gameEndTF.eulerAngles = new Vector3(0, 0, (endGameTimer - 1) * 180);
             gameEndTF.localScale = ((endGameTimer - 1) / 4f) * Vector3.one;
         }
-        else if(endGameTimer > 7f)
+        else if(endGameTimer > 8f)
         {
+            SceneChanger.Instance.LoadGameScene(0);
             //load main menu and reset
         }
     }
