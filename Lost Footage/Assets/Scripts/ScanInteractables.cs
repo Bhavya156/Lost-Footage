@@ -10,11 +10,13 @@ public class ScanInteractables : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Interactable") || other.CompareTag("Cat"))
+        if (other.CompareTag("Interactable") || other.CompareTag("Cat") || other.CompareTag("Vehicle") || other.CompareTag("Igniter") || other.CompareTag("Arson")  || other.CompareTag("Flammable"))
         {
             EnableUI(other.gameObject);
         }
     }
+
+
 
     GameObject uiInstance;
     public void EnableUI(GameObject interactable)

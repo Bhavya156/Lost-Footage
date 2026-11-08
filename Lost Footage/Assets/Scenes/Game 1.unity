@@ -9592,6 +9592,14 @@ MonoBehaviour:
   typewriterClip: {fileID: 8300000, guid: 4bbddb614b1b6f445a6e16d0a10b3712, type: 3}
   uiSFXClip: {fileID: 8300000, guid: 47f4e839cf405754d8645cd1dd704eb0, type: 3}
   btnHoverClip: {fileID: 8300000, guid: 19c4a5dc89b7f9a4ca7c473ea36ae433, type: 3}
+  cat_angry: {fileID: 8300000, guid: 051ad9995db22ad45b22e964e3531927, type: 3}
+  cat_meow: {fileID: 8300000, guid: 59f1d41cf640be24f81d23ea05353484, type: 3}
+  footsteps: {fileID: 8300000, guid: 2114c5a65e903a846a50d7704c453d87, type: 3}
+  explosion: {fileID: 8300000, guid: 2114c5a65e903a846a50d7704c453d87, type: 3}
+  fireEffect: {fileID: 8300000, guid: aa5779e93e267284e8c0de990a8a4287, type: 3}
+  pickup: {fileID: 8300000, guid: 604c7ab8c70986c4f872ecaf4851e15b, type: 3}
+  cameraClick: {fileID: 8300000, guid: 6172f6e81c82f4342b7951eeeb29d6ab, type: 3}
+  wrongBuzz: {fileID: 8300000, guid: 8e825afbb4994624b8db2a5f06be4edd, type: 3}
 --- !u!4 &461910899
 Transform:
   m_ObjectHideFlags: 0
