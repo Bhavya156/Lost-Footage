@@ -21,9 +21,9 @@ public class SceneChanger : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void LoadGameScene(string gameSceneName)
+    public void LoadGameScene(int sceneId)
     {
-        SceneManager.LoadScene(gameSceneName);
+        SceneManager.LoadScene(sceneId);
     }
 
     public IEnumerator LoadNextLevel()
