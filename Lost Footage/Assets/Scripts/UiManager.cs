@@ -22,16 +22,29 @@ public class UiManager : MonoBehaviour
         typewriterEffect.ShowText(gamedialogues[0]);
         AudioManager.Instance.PlayTypeWriterAudio();
         index++;
+
+        pictureDisplayStartPos = pictureDisplay.rectTransform.localPosition;
+        pictureDisplayStartRot = pictureDisplay.rectTransform.eulerAngles;
+        articleTFStart = ArticleTF.localPosition;
     }
     int index = 0;
 
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private GameObject pausePanel;
+    public RawImage pictureDisplay;
+    public Vector3 pictureDisplayStartPos;
+    public Vector3 pictureDisplayStartRot;
+    public RectTransform pictureDisplayTargetPos;
+    bool displayingImage;
+    float displayingImageTimer;
 
     public Slider musicSlider;
     public Slider sfxSlider;
     public Slider uiSfxSlider;
+
+    public RectTransform ArticleTF;
+    Vector3 articleTFStart;
 
     string[] gamedialogues = { "Oh no! I lost all the footage from the past few days.", "I have to to somehow get it back!", "Recreate the events displayed on top of the screen and then take a picture.", "Press [C] to have the camera online" };
 
@@ -43,7 +56,14 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    public bool isPaused;
+    public void DisplayImage(RenderTexture picture)
+    {
+        pictureDisplay.texture = picture;
+        pictureDisplay.gameObject.SetActive(true);
+        displayingImage = true;
+    }
+
+    bool isPaused;
 
     void Update()
     {
@@ -68,6 +88,12 @@ public class UiManager : MonoBehaviour
         {
             ResumeBtn();
         }
+
+        if (displayingImage)
+        {
+            AnimateImage();
+        }
+
 
         if (isPaused && Cursor.lockState != CursorLockMode.None)
         {
@@ -105,6 +131,31 @@ public class UiManager : MonoBehaviour
         Time.timeScale = 1f;
         CursorLockState(0);
         SceneChanger.Instance.LoadGameScene(0);
+    }
+
+    public void AnimateImage()
+    {
+        displayingImageTimer += Time.deltaTime;
+
+        //pictures flies in
+        if(displayingImageTimer > 1f && displayingImageTimer < 3f)
+        {
+            pictureDisplay.rectTransform.localPosition = pictureDisplayStartPos - (pictureDisplayStartPos * ((displayingImageTimer - 1f) / 2f));
+
+            pictureDisplay.rectTransform.eulerAngles = pictureDisplayStartRot + (pictureDisplayTargetPos.eulerAngles - pictureDisplayStartRot) * ((displayingImageTimer - 1f) / 2f);
+
+            pictureDisplay.rectTransform.localScale = (Vector3.one * 2.5f) - Vector3.one * (((displayingImageTimer - 1) / 2) * 1.5f);
+        }
+        //article disappears
+        else if (displayingImageTimer > 4f && displayingImageTimer < 5f)
+        {
+            ArticleTF.localPosition = articleTFStart - new Vector3(400 * (displayingImageTimer - 4f), 0, 0);
+        }
+        //article reappears
+        else if(displayingImageTimer > 5f && displayingImageTimer < 6f)
+        {
+            ArticleTF.localPosition = articleTFStart - new Vector3(400, 0, 0) + new Vector3(400 * (displayingImageTimer - 5f), 0, 0);
+        }
     }
 
     void CursorLockState(int state)

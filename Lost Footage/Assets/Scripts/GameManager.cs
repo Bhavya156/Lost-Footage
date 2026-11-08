@@ -1,11 +1,15 @@
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public enum GameState { catPhoto, firePhoto, bankPhoto, ending }
 
     public static GameManager Instance { get; private set; }
+
+    public RenderTexture cameraRenderTexture;
+    public RenderTexture lastPhoto;
 
     public bool catInTree;
     public GameObject targetCat;
@@ -36,7 +40,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
-
+        lastPhoto = new RenderTexture(Screen.width, Screen.height, 24);
     }
 
 
@@ -56,6 +60,8 @@ public class GameManager : MonoBehaviour
                     {
                         gameState = GameState.firePhoto;
                         triggerTruck = true;
+                        Graphics.Blit(cameraRenderTexture, lastPhoto);
+                        UiManager.Instance.DisplayImage(lastPhoto);
                         //PUT TRANSITION HERE
                     }
                 }

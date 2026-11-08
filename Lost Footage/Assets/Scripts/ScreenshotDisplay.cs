@@ -10,6 +10,7 @@ public class ScreenshotDisplay : MonoBehaviour
     private void Start()
     {
         screenshot = new RenderTexture(Screen.width, Screen.height, 24);
+        GameManager.Instance.cameraRenderTexture = cameraRenderTexture;
         //screenshotMat.mainTexture = screenshot;
     }
 
