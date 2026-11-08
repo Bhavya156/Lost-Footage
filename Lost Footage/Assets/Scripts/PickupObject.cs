@@ -52,7 +52,7 @@ public class PickupObject : MonoBehaviour
                 //     Destroy(uiInstance);
                 // }
                 scanInteractables.DisableUI(grabbedObject);
-
+                scanInteractables.EnableUI2(grabbedObject);
                 if (grabbedObject.GetComponentInChildren<ParticleSystem>() != null && grabbedObject.gameObject.name != "jetMissile")
                 {
                     grabbedObject.GetComponentInChildren<ParticleSystem>().Play();

@@ -52,7 +52,9 @@ public class Snapping : MonoBehaviour
             if (!isUIEnabled)
             {
                 scanInteractables.EnableUI(otherRB.gameObject);
+                scanInteractables.DisableUI2(otherRB.gameObject);
                 scanInteractables.ChangeDialogueText(otherRB.gameObject);
+                
                 isUIEnabled = true;
             }
         }

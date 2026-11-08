@@ -60,6 +60,22 @@ public class ScanInteractables : MonoBehaviour
             interactable.transform.Find("UI").gameObject.SetActive(false);
         }
     }
+    public void DisableUI2(GameObject interactable)
+    {
+        if (interactable.transform.Find("UI_2") != null)
+        {
+            interactable.transform.Find("UI_2").gameObject.SetActive(false);
+        }
+    
+    }
+    public void EnableUI2(GameObject interactable)
+    {
+        //Find the interactable in the list and enable its UI
+        if (interactable.transform.Find("UI_2") != null)
+        {
+            interactable.transform.Find("UI_2").gameObject.SetActive(true);
+        }
+    }
 
     void OnTriggerExit(Collider other)
     {
