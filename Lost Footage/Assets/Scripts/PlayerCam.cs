@@ -16,12 +16,19 @@ public class PlayerCam : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        LockCursor();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        if (!UiManager.Instance.isPaused)
+        {
+            CamMovement();
+        }
+    }
+
+    void CamMovement()
     {
         float mouseX = Input.GetAxisRaw("Mouse X") * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * sensY;
@@ -35,5 +42,11 @@ public class PlayerCam : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

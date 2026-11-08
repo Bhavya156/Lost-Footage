@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
@@ -25,6 +27,11 @@ public class UiManager : MonoBehaviour
 
     [SerializeField] private TypewriterEffect typewriterEffect;
     [SerializeField] private GameObject dialogueBox;
+    [SerializeField] private GameObject pausePanel;
+
+    public Slider musicSlider;
+    public Slider sfxSlider;
+    public Slider uiSfxSlider;
 
     string[] gamedialogues = { "Oh no! I lost all the footage from the past few days.", "I have to to somehow get it back!", "Recreate the events displayed on top of the screen and then take a picture.", "Press [C] to have the camera online" };
 
@@ -36,7 +43,7 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    bool isPaused;
+    public bool isPaused;
 
     void Update()
     {
@@ -61,34 +68,59 @@ public class UiManager : MonoBehaviour
         {
             ResumeBtn();
         }
+
+        if (isPaused && Cursor.lockState != CursorLockMode.None)
+        {
+            CursorLockState(1);
+        }
     }
 
     public void SettingsBtn()
     {
-        AudioManager.Instance.OnBtnClickAudio();
+        // AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 0f;
         isPaused = true;
-        // pausePanel.SetActive(true);
+        pausePanel.SetActive(true);
     }
     public void ResumeBtn()
     {
-        AudioManager.Instance.OnBtnClickAudio();
+        // AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 1f;
         isPaused = false;
-        // pausePanel.SetActive(false);
+        pausePanel.SetActive(false);
+        CursorLockState(0);
     }
 
     public void RestartBtn()
     {
-        AudioManager.Instance.OnBtnClickAudio();
+        // AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 1f;
-        // SceneLoader.Instance.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        CursorLockState(0);
+        SceneChanger.Instance.LoadGameScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenuBtn()
     {
-        AudioManager.Instance.OnBtnClickAudio();
+        // AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 1f;
-        // SceneLoader.Instance.LoadScene(0);
+        CursorLockState(0);
+        SceneChanger.Instance.LoadGameScene(0);
+    }
+
+    void CursorLockState(int state)
+    {
+        switch (state)
+        {
+            case 0:
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                break;
+            case 1:
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                break;
+            default:
+                break;
+        }
     }
 }
