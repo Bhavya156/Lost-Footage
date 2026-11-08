@@ -7797,10 +7797,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   catInTree: 0
   targetCat: {fileID: 0}
+  gameState: 0
   buildingBurning: 0
   burningBuildings: []
   bankBroken: 0
   bank: {fileID: 0}
+  triggerTruck: 0
+  triggerPlane: 0
 --- !u!4 &2109075054
 Transform:
   m_ObjectHideFlags: 0

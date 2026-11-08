@@ -11,3 +11,5 @@ Massive Explosion: https://pixabay.com/users/dragon-studio-38165424/
 Pick-up object: https://pixabay.com/users/freesound_community-46691455/
 1_background: https://pixabay.com/users/tatamusic-51344851/
 2_background: https://pixabay.com/users/maksymmalko-46459014/
+camera_click: https://pixabay.com/users/stevemotion-56758643/
+boo-womp: https://www.youtube.com/watch?v=Xsrjy7140Lw
