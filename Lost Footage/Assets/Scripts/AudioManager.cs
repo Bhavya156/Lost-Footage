@@ -1,0 +1,94 @@
+using UnityEngine;
+
+public class AudioManager : MonoBehaviour
+{
+    public static AudioManager Instance;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+
+    public AudioSource bgmSource;
+    public AudioSource sfxSource;
+    public AudioSource uiSfxSource;
+
+    public AudioClip typewriterClip;
+    public AudioClip uiSFXClip;
+    public AudioClip btnHoverClip;
+
+    public void PlayTypeWriterAudio()
+    {
+        sfxSource.clip = typewriterClip;
+        sfxSource.Play();
+    }
+
+    public void StopAudio(AudioSource src)
+    {
+        src.Stop();
+    }
+
+    public void ChangeVolume(AudioSource src, float val)
+    {
+        src.volume = val;
+    }
+
+    public void OnBtnClickAudio()
+    {
+        uiSfxSource.PlayOneShot(uiSFXClip);
+    }
+
+    public void OnBtnHoverAudio()
+    {
+        sfxSource.PlayOneShot(btnHoverClip);
+    }
+
+    public void PlayBGM(AudioClip clip)
+    {
+        bgmSource.clip = clip;
+        bgmSource.loop = true;
+        bgmSource.Play();
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        if (clip != null) sfxSource.PlayOneShot(clip);
+    }
+
+//     [Header("Audio Mixer")]
+//     public AudioMixer master;
+//     [Header("Audio Clips")]
+//     public AudioClip bgmClip;
+
+//     private bool isMuted = false;
+
+//     private float currentMusicVolume = 1f;
+//     private float currentSFXVolume = 1f;
+
+//     public float GetMusicVolume() => currentMusicVolume;
+//     public float GetSFXVolume() => currentSFXVolume;
+//     public bool IsMuted() => isMuted;
+
+//     void Awake()
+//     {
+//         SoundManager.Instance.LoadPreferences();
+//         SoundManager.Instance.ApplyVolumeToMixer();
+//     }
+
+//     void Start()
+//     {
+//         // Sync UI if UIManager exists
+//         if (GameManager.Instance != null && GameManager.Instance.UIManager != null)
+//         {
+//             var ui = GameManager.Instance.UIManager;
+//             SoundManager.Instance.SetMusicSliderValue(ui.musicSlider, currentMusicVolume);
+//             SoundManager.Instance.SetSFXSliderValue(ui.sfxSlider, currentSFXVolume);
+//         }
+//     }
+}

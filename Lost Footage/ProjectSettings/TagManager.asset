@@ -10,6 +10,7 @@ TagManager:
   - Vehicle
   - Arson
   - Floor
+  - Cat
   layers:
   - Default
   - TransparentFX
