@@ -41,6 +41,14 @@ public class AudioManager : MonoBehaviour
     public AudioClip typewriterClip;
     public AudioClip uiSFXClip;
     public AudioClip btnHoverClip;
+    public AudioClip cat_angry;
+    public AudioClip cat_meow;
+    public AudioClip footsteps;
+    public AudioClip explosion;
+    public AudioClip fireEffect;
+    public AudioClip pickup;
+    public AudioClip cameraClick;
+    public AudioClip wrongBuzz;
 
     private float currentMusicVolume = 1f;
     private float currentSFXVolume = 1f;
@@ -87,11 +95,4 @@ public class AudioManager : MonoBehaviour
     {
         if (clip != null) sfxSource.PlayOneShot(clip);
     }
-
-
-    //     [Header("Audio Clips")]
-    //     public AudioClip bgmClip;
-
-    //     private bool isMuted = false;
-
 }

@@ -52,6 +52,15 @@ public class PickupObject : MonoBehaviour
                 //     Destroy(uiInstance);
                 // }
                 scanInteractables.DisableUI(grabbedObject);
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.pickup);
+                if (grabbedObject.name.Contains("Cat"))
+                {
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.cat_meow);
+                }
+                else if (grabbedObject.name.Contains(""))
+                {
+
+                }
                 scanInteractables.EnableUI2(grabbedObject);
                 if (grabbedObject.GetComponentInChildren<ParticleSystem>() != null && grabbedObject.gameObject.name != "jetMissile")
                 {
