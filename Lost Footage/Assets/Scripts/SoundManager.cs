@@ -30,7 +30,7 @@ public class SoundManager : MonoBehaviour
     {
         currentMusicVolume = PlayerPrefs.GetFloat(StringContainer.PrefsMusic, 1f);
         currentSFXVolume = PlayerPrefs.GetFloat(StringContainer.PrefsSFX, 1f);
-        currentUISFXVolume = PlayerPrefs.GetFloat(StringContainer.PrefsSFX, 1f);
+        currentUISFXVolume = PlayerPrefs.GetFloat(StringContainer.PresUISFX, 1f);
     }
 
     void SavePreferences()
@@ -76,7 +76,7 @@ public class SoundManager : MonoBehaviour
 
     public void OnUISFXVolumeChanged(float value)
     {
-        currentSFXVolume = Mathf.Clamp01(value);
+        currentUISFXVolume = Mathf.Clamp01(value);
 
         // if (isMuted)
         // {
@@ -139,7 +139,7 @@ public class SoundManager : MonoBehaviour
     {
         if (musicSlider != null) musicSlider.onValueChanged.RemoveListener(OnMusicVolumeChanged);
         if (sfxSlider != null) sfxSlider.onValueChanged.RemoveListener(OnSFXVolumeChanged);
-        if (uiSfxSlider != null) sfxSlider.onValueChanged.RemoveListener(OnSFXVolumeChanged);
+        if (uiSfxSlider != null) uiSfxSlider.onValueChanged.RemoveListener(OnUISFXVolumeChanged);
         // if (muteBtn != null) muteBtn.onValueChanged.RemoveListener(OnMutePressed);
     }
 }

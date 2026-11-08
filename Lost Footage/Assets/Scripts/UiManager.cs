@@ -19,6 +19,8 @@ public class UiManager : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.SetVolumePreferences(musicSlider, sfxSlider, uiSfxSlider);
+
         typewriterEffect.ShowText(gamedialogues[0]);
         AudioManager.Instance.PlayTypeWriterAudio();
         index++;
@@ -26,6 +28,15 @@ public class UiManager : MonoBehaviour
         pictureDisplayStartPos = pictureDisplay.rectTransform.localPosition;
         pictureDisplayStartRot = pictureDisplay.rectTransform.eulerAngles;
         articleTFStart = ArticleTF.localPosition;
+
+        endGameArticle1 = new RenderTexture(Screen.width, Screen.height, 24);
+        endGameArticle2 = new RenderTexture(Screen.width, Screen.height, 24);
+        endGameArticle3 = new RenderTexture(Screen.width, Screen.height, 24);
+    }
+
+    void Oestroy()
+    {
+        SoundManager.Instance.RemoveSliderListeners(musicSlider, sfxSlider, uiSfxSlider);
     }
     int index = 0;
 
@@ -53,6 +64,17 @@ public class UiManager : MonoBehaviour
     public Sprite article3;
     Vector3 articleTFStart;
 
+    public RenderTexture endGameArticle1;
+    public RenderTexture endGameArticle2;
+    public RenderTexture endGameArticle3;
+    public RawImage endGamePicture1;
+    public RawImage endGamePicture2;
+    public RawImage endGamePicture3;
+    public Transform gameEndTF;
+
+    public bool gameEnded;
+    float endGameTimer;
+
     string[] gamedialogues = { "Oh no! I lost all the footage from the past few days.", "I have to to somehow get it back!", "Recreate the events displayed on top of the screen and then take a picture.", "Press [C] to have the camera online" };
 
     private void clickToNext(string[] lines)
@@ -68,6 +90,19 @@ public class UiManager : MonoBehaviour
         pictureDisplay.texture = picture;
         pictureDisplay.gameObject.SetActive(true);
         displayingImage = true;
+
+        switch (GameManager.Instance.gameState)
+        {
+            case GameManager.GameState.firePhoto:
+                Graphics.Blit(picture, endGameArticle1);
+                break;
+            case GameManager.GameState.bankPhoto:
+                Graphics.Blit(picture, endGameArticle2);
+                break;
+            case GameManager.GameState.ending:
+                Graphics.Blit(picture, endGameArticle3);
+                break;
+        }
     }
 
     public bool isPaused;
@@ -85,6 +120,7 @@ public class UiManager : MonoBehaviour
         {
             dialogueBox.SetActive(false);
             AudioManager.Instance.StopAudio(AudioManager.Instance.sfxSource);
+            AudioManager.Instance.ChangeVolume(AudioManager.Instance.bgmSource, 0.5f);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
@@ -96,10 +132,9 @@ public class UiManager : MonoBehaviour
             ResumeBtn();
         }
 
-        if (displayingImage)
-        {
-            AnimateImage();
-        }
+        if (displayingImage) AnimateImage();
+        if (gameEnded) AnimateGameEnd();
+
 
 
         if (isPaused && Cursor.lockState != CursorLockMode.None)
@@ -110,14 +145,14 @@ public class UiManager : MonoBehaviour
 
     public void SettingsBtn()
     {
-        // AudioManager.Instance.OnBtnClickAudio();
+        AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 0f;
         isPaused = true;
         pausePanel.SetActive(true);
     }
     public void ResumeBtn()
     {
-        // AudioManager.Instance.OnBtnClickAudio();
+        AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 1f;
         isPaused = false;
         pausePanel.SetActive(false);
@@ -126,7 +161,7 @@ public class UiManager : MonoBehaviour
 
     public void RestartBtn()
     {
-        // AudioManager.Instance.OnBtnClickAudio();
+        AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 1f;
         CursorLockState(0);
         SceneChanger.Instance.LoadGameScene(SceneManager.GetActiveScene().buildIndex);
@@ -134,21 +169,21 @@ public class UiManager : MonoBehaviour
 
     public void OpenAudioPanel()
     {
-        // AudioManager.Instance.OnBtnClickAudio();
+        AudioManager.Instance.OnBtnClickAudio();
         optionsPanel.SetActive(false);
         audioPanel.SetActive(true);
     }
 
     public void CloseAudioPanel()
     {
-        // AudioManager.Instance.OnBtnClickAudio();
+        AudioManager.Instance.OnBtnClickAudio();
         audioPanel.SetActive(false);
         optionsPanel.SetActive(true);
     }
 
     public void MainMenuBtn()
     {
-        // AudioManager.Instance.OnBtnClickAudio();
+        AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 1f;
         CursorLockState(0);
         SceneChanger.Instance.LoadGameScene(0);
@@ -183,6 +218,17 @@ public class UiManager : MonoBehaviour
                 case GameManager.GameState.bankPhoto:
                     article.sprite = article3;
                     break;
+                case GameManager.GameState.ending:
+                    ArticleTF.gameObject.SetActive(false);
+                    displayingImageTimer = 0;
+                    displayingImage = false;
+                    gameEnded = true;
+                    endGamePicture1.texture = endGameArticle1;
+                    endGamePicture2.texture = endGameArticle2;
+                    endGamePicture3.texture = endGameArticle3;
+                    gameEndTF.gameObject.SetActive(true);
+                    gameEndTF.localScale = Vector3.zero;
+                    break;
             }
             ArticleTF.localPosition = articleTFStart - new Vector3(400, 0, 0) + new Vector3(400 * (displayingImageTimer - 5f), 0, 0);
             pictureDisplay.gameObject.SetActive(false);
@@ -194,6 +240,21 @@ public class UiManager : MonoBehaviour
         {
             displayingImageTimer = 0;
             displayingImage = false;
+        }
+    }
+
+    public void AnimateGameEnd()
+    {
+        endGameTimer += Time.deltaTime;
+
+        if (endGameTimer > 1f && endGameTimer < 5f)
+        {
+            gameEndTF.eulerAngles = new Vector3(0, 0, (endGameTimer - 1) * 180);
+            gameEndTF.localScale = ((endGameTimer - 1) / 4f) * Vector3.one;
+        }
+        else if(endGameTimer > 7f)
+        {
+            //load main menu and reset
         }
     }
 
