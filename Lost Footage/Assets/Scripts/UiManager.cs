@@ -19,6 +19,8 @@ public class UiManager : MonoBehaviour
 
     void Start()
     {
+        SoundManager.Instance.SetVolumePreferences(musicSlider, sfxSlider, uiSfxSlider);
+
         typewriterEffect.ShowText(gamedialogues[0]);
         AudioManager.Instance.PlayTypeWriterAudio();
         index++;
@@ -26,6 +28,11 @@ public class UiManager : MonoBehaviour
         pictureDisplayStartPos = pictureDisplay.rectTransform.localPosition;
         pictureDisplayStartRot = pictureDisplay.rectTransform.eulerAngles;
         articleTFStart = ArticleTF.localPosition;
+    }
+
+    void Oestroy()
+    {
+        SoundManager.Instance.RemoveSliderListeners(musicSlider, sfxSlider, uiSfxSlider);
     }
     int index = 0;
 
@@ -85,6 +92,7 @@ public class UiManager : MonoBehaviour
         {
             dialogueBox.SetActive(false);
             AudioManager.Instance.StopAudio(AudioManager.Instance.sfxSource);
+            AudioManager.Instance.ChangeVolume(AudioManager.Instance.bgmSource, 0.5f);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
@@ -110,14 +118,14 @@ public class UiManager : MonoBehaviour
 
     public void SettingsBtn()
     {
-        // AudioManager.Instance.OnBtnClickAudio();
+        AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 0f;
         isPaused = true;
         pausePanel.SetActive(true);
     }
     public void ResumeBtn()
     {
-        // AudioManager.Instance.OnBtnClickAudio();
+        AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 1f;
         isPaused = false;
         pausePanel.SetActive(false);
@@ -126,7 +134,7 @@ public class UiManager : MonoBehaviour
 
     public void RestartBtn()
     {
-        // AudioManager.Instance.OnBtnClickAudio();
+        AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 1f;
         CursorLockState(0);
         SceneChanger.Instance.LoadGameScene(SceneManager.GetActiveScene().buildIndex);
@@ -134,21 +142,21 @@ public class UiManager : MonoBehaviour
 
     public void OpenAudioPanel()
     {
-        // AudioManager.Instance.OnBtnClickAudio();
+        AudioManager.Instance.OnBtnClickAudio();
         optionsPanel.SetActive(false);
         audioPanel.SetActive(true);
     }
 
     public void CloseAudioPanel()
     {
-        // AudioManager.Instance.OnBtnClickAudio();
+        AudioManager.Instance.OnBtnClickAudio();
         audioPanel.SetActive(false);
         optionsPanel.SetActive(true);
     }
 
     public void MainMenuBtn()
     {
-        // AudioManager.Instance.OnBtnClickAudio();
+        AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 1f;
         CursorLockState(0);
         SceneChanger.Instance.LoadGameScene(0);
