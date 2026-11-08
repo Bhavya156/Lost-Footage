@@ -63,7 +63,7 @@ public class UiManager : MonoBehaviour
         displayingImage = true;
     }
 
-    bool isPaused;
+    public bool isPaused;
 
     void Update()
     {
