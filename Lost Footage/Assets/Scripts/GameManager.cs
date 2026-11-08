@@ -2,24 +2,28 @@ using NUnit.Framework;
 using System;
 using TMPro.EditorUtilities;
 using UnityEngine;
+using UnityEngine.Events;
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    enum GameState { catPhoto, firePhoto, bankPhoto, ending }
+    public enum GameState { catPhoto, firePhoto, bankPhoto, ending }
 
     public static GameManager Instance { get; private set; }
 
     public bool catInTree;
     public GameObject targetCat;
-    GameState gameState;
+    public GameState gameState;
 
     public bool buildingBurning;
     public List<GameObject> burningBuildings;
 
     public bool bankBroken;
     public GameObject bank;
+
+    public bool triggerTruck;
+    public bool triggerPlane;
 
 
 
@@ -56,6 +60,7 @@ public class GameManager : MonoBehaviour
                     if (checkPhoto(targetCat, cameraTakingPhoto))
                     {
                         gameState = GameState.firePhoto;
+                        triggerTruck = true;
                         //PUT TRANSITION HERE
                     }
                 }
@@ -68,6 +73,7 @@ public class GameManager : MonoBehaviour
                         if (checkPhoto(building, cameraTakingPhoto))
                         {
                             gameState = GameState.bankPhoto;
+                            triggerPlane = true;
                             //PUT TRANSITION HERE
                             break;
                         }

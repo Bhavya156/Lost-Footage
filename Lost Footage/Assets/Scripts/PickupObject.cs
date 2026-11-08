@@ -53,10 +53,10 @@ public class PickupObject : MonoBehaviour
                 // }
                 scanInteractables.DisableUI(grabbedObject);
 
-                if(grabbedObject.GetComponentInChildren<ParticleSystem>() != null)
-                {
-                    grabbedObject.GetComponentInChildren<ParticleSystem>().Play();
-                }
+                //if(grabbedObject.GetComponentInChildren<ParticleSystem>() != null)
+                //{
+                //    grabbedObject.GetComponentInChildren<ParticleSystem>().Play();
+                //}
                 
             }
         }
