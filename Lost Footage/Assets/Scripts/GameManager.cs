@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public bool buildingBurning;
     public List<GameObject> burningBuildings;
 
+    public bool bankBroken;
+    public GameObject bank;
+
 
 
     void Awake()
@@ -53,17 +56,34 @@ public class GameManager : MonoBehaviour
                     if (checkPhoto(targetCat, cameraTakingPhoto))
                     {
                         gameState = GameState.firePhoto;
+                        //PUT TRANSITION HERE
                     }
                 }
                 break;
             case GameState.firePhoto:
                 if (buildingBurning)
                 {
-
+                    foreach(GameObject building in burningBuildings)
+                    {
+                        if (checkPhoto(building, cameraTakingPhoto))
+                        {
+                            gameState = GameState.bankPhoto;
+                            //PUT TRANSITION HERE
+                            break;
+                        }
+                    }
                 }
                 break;
             case GameState.bankPhoto:
-
+                if (bankBroken)
+                {
+                    if (checkPhoto(bank, cameraTakingPhoto))
+                    {
+                        gameState = GameState.ending;
+                        //PUT TRANSITION HERE
+                        break;
+                    }
+                }
                 break;
         }
     }

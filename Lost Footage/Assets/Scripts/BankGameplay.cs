@@ -41,6 +41,9 @@ public class BankGameplay : MonoBehaviour
 
         explosion1.Play();
         explosion2.Play();
+
+        GameManager.Instance.bank = gameObject;
+        GameManager.Instance.bankBroken = true;
     }
 
     // Update is called once per frame
