@@ -75,7 +75,7 @@ public class UiManager : MonoBehaviour
     public bool gameEnded;
     float endGameTimer;
 
-    string[] gamedialogues = { "Oh no! I lost all the footage from the past few days.", "I have to to somehow get it back!", "Recreate the events displayed on top of the screen and then take a picture.", "Press [C] to have the camera online" };
+    string[] gamedialogues = { "Oh no! I lost all the footage from the past few days.", "I have to to somehow get it back!", "Recreate the events displayed on top of the screen and then take a picture.", "Press [C] to have the camera online.", "Press [LMB] to take a picture." };
 
     private void clickToNext(string[] lines)
     {

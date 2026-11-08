@@ -35,6 +35,7 @@ public class GameplayCamera : MonoBehaviour
             {
                 if (!inPlay)
                 {
+                    AudioManager.Instance.PlaySound(AudioManager.Instance.uiSfxSource, AudioManager.Instance.pickup);
                     playerAnim.SetBool("Grab", true);
                     handicam.gameObject.SetActive(true);
                     mr.enabled = true;

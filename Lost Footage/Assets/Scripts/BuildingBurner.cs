@@ -10,6 +10,7 @@ public class BuildingBurner : MonoBehaviour
     [SerializeField] ParticleSystem burner2;
     [SerializeField] ParticleSystem burner3;
     [SerializeField] ParticleSystem burner4;
+    [SerializeField] AudioSource audioSource;
 
 
     void OnTriggerEnter(Collider other)
@@ -29,6 +30,8 @@ public class BuildingBurner : MonoBehaviour
                 burner2.Play();
                 burner3.Play();
                 burner4.Play();
+
+                AudioManager.Instance.PlaySound(audioSource, AudioManager.Instance.fireEffect);
             }
         }
     }

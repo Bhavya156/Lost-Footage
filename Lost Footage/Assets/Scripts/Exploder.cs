@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Exploder : MonoBehaviour
 {
-
+    public AudioSource audioSource;
     public ParticleSystem ps1;
     public ParticleSystem ps2;
 
@@ -15,6 +15,7 @@ public class Exploder : MonoBehaviour
         ps1.Play();
         ps2.Play();
         gameObject.AddComponent<SphereCollider>();
+        AudioManager.Instance.PlaySound(audioSource, AudioManager.Instance.explosion);
     }
 
     // Update is called once per frame

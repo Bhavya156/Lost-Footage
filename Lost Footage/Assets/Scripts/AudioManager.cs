@@ -94,5 +94,11 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(AudioClip clip)
     {
         if (clip != null) sfxSource.PlayOneShot(clip);
+        else Debug.Log("clip nooot found");
+    }
+
+    public void PlaySound(AudioSource src, AudioClip clip)
+    {
+        src.PlayOneShot(clip);
     }
 }

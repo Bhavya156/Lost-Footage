@@ -12,6 +12,7 @@ public class BankGameplay : MonoBehaviour
     public ParticleSystem explosion2;
 
     public float requiredVelocity;
+    public AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,6 +37,8 @@ public class BankGameplay : MonoBehaviour
     {
         bank.SetActive(false);
         bankBroken.SetActive(true);
+
+        AudioManager.Instance.PlaySound(audioSource, AudioManager.Instance.explosion);
 
         alreadyBroken = true;
 

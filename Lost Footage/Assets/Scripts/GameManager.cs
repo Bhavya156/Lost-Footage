@@ -106,9 +106,11 @@ public class GameManager : MonoBehaviour
 
         if (GeometryUtility.TestPlanesAABB(planes, collider.bounds))
         {
+            AudioManager.Instance.PlaySound(AudioManager.Instance.uiSfxSource, AudioManager.Instance.cameraClick);
             Debug.Log("in view");
             return true;
         }
+        AudioManager.Instance.PlaySound(AudioManager.Instance.uiSfxSource, AudioManager.Instance.wrongBuzz);
         Debug.Log("not in view");
         return false;
     }

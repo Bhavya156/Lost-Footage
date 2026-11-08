@@ -52,10 +52,11 @@ public class PickupObject : MonoBehaviour
                 //     Destroy(uiInstance);
                 // }
                 scanInteractables.DisableUI(grabbedObject);
-                AudioManager.Instance.PlaySFX(AudioManager.Instance.pickup);
+                AudioManager.Instance.PlaySound(AudioManager.Instance.uiSfxSource, AudioManager.Instance.pickup);
                 if (grabbedObject.name.Contains("Cat"))
                 {
-                    AudioManager.Instance.PlaySFX(AudioManager.Instance.cat_meow);
+                    var src = grabbedObject.transform.Find("AudioSource").GetComponent<AudioSource>();
+                    AudioManager.Instance.PlaySound(src, AudioManager.Instance.cat_meow);
                 }
                 else if (grabbedObject.name.Contains(""))
                 {
@@ -83,6 +84,11 @@ public class PickupObject : MonoBehaviour
 
             isSnapping = false;
             grabbedRB.AddForce(transform.forward * throwForce, ForceMode.Impulse);
+            if (grabbedObject.name.Contains("Cat"))
+            {
+                var src = grabbedObject.transform.Find("AudioSource").GetComponent<AudioSource>();
+                AudioManager.Instance.PlaySound(src, AudioManager.Instance.cat_angry);
+            }
             grabbedObject = null;
             grabbedRB = null;
 

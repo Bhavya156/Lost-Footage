@@ -77,6 +77,11 @@ public class PlayerMovementTutorial : MonoBehaviour
 
         playerAnimator.SetFloat("Speed", speed);
 
+        // if (speed > 0)
+        // {
+        //     AudioManager.Instance.PlaySound(AudioManager.Instance.uiSfxSource, AudioManager.Instance.footsteps);
+        // }
+
         // when to jump
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
