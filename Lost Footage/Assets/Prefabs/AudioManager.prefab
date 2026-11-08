@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a96e09acc61bf34e9b44f73b179656a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  master: {fileID: 24100000, guid: bcef37af13c793b47bfc9834a305b435, type: 2}
   bgmSource: {fileID: 0}
   sfxSource: {fileID: 0}
   uiSfxSource: {fileID: 0}
   typewriterClip: {fileID: 8300000, guid: 4bbddb614b1b6f445a6e16d0a10b3712, type: 3}
-  uiSFXClip: {fileID: 0}
-  btnHoverClip: {fileID: 0}
+  uiSFXClip: {fileID: 8300000, guid: 47f4e839cf405754d8645cd1dd704eb0, type: 3}
+  btnHoverClip: {fileID: 8300000, guid: 19c4a5dc89b7f9a4ca7c473ea36ae433, type: 3}

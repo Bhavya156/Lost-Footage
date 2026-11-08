@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
             var ui = UiManager.Instance;
             SoundManager.Instance.SetMusicSliderValue(ui.musicSlider, currentMusicVolume);
             SoundManager.Instance.SetSFXSliderValue(ui.sfxSlider, currentSFXVolume);
-            SoundManager.Instance.SetSFXSliderValue(ui.uiSfxSlider, currentUISFXVolume);
+            SoundManager.Instance.SetUISFXSliderValue(ui.uiSfxSlider, currentUISFXVolume);
         }
     }
 
@@ -73,7 +73,7 @@ public class AudioManager : MonoBehaviour
 
     public void OnBtnHoverAudio()
     {
-        sfxSource.PlayOneShot(btnHoverClip);
+        uiSfxSource.PlayOneShot(btnHoverClip);
     }
 
     public void PlayBGM(AudioClip clip)
