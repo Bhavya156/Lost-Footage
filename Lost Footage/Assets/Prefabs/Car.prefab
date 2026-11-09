@@ -298,8 +298,8 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   seat: {fileID: 7315646438586176360}
   rb: {fileID: 3635535648157272755}
-  drivingForce: 200
-  steeringForce: 80
+  drivingForce: 60000
+  steeringForce: 10000
   steeringPoint: {fileID: 4214764002524627251}
   sidewaysFriction: 20
 --- !u!65 &5831375020049725780
@@ -321,7 +321,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 4, z: 5}
+  m_Size: {x: 3.5, y: 4.3, z: 5.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4440289563698518949
 GameObject:

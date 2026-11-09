@@ -17664,6 +17664,7 @@ MonoBehaviour:
   burner2: {fileID: 1596079527}
   burner3: {fileID: 1596079527}
   burner4: {fileID: 1596079527}
+  audioSource: {fileID: 0}
 --- !u!65 &654336695
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20083,6 +20084,7 @@ MonoBehaviour:
   burner2: {fileID: 81452957}
   burner3: {fileID: 81452957}
   burner4: {fileID: 81452957}
+  audioSource: {fileID: 0}
 --- !u!65 &738125081
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20204,6 +20206,7 @@ MonoBehaviour:
   burner2: {fileID: 841571965}
   burner3: {fileID: 841571965}
   burner4: {fileID: 841571965}
+  audioSource: {fileID: 0}
 --- !u!65 &766886182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20398,6 +20401,7 @@ MonoBehaviour:
   burner2: {fileID: 529802656}
   burner3: {fileID: 529802656}
   burner4: {fileID: 529802656}
+  audioSource: {fileID: 0}
 --- !u!65 &781471990
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22837,6 +22841,7 @@ MonoBehaviour:
   burner2: {fileID: 2063477768}
   burner3: {fileID: 2063477768}
   burner4: {fileID: 2063477768}
+  audioSource: {fileID: 0}
 --- !u!65 &970667160
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25340,6 +25345,7 @@ MonoBehaviour:
   burner2: {fileID: 1088505729}
   burner3: {fileID: 1088505729}
   burner4: {fileID: 1088505729}
+  audioSource: {fileID: 0}
 --- !u!65 &1013381714
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25461,6 +25467,7 @@ MonoBehaviour:
   burner2: {fileID: 1343837996}
   burner3: {fileID: 1343837996}
   burner4: {fileID: 1343837996}
+  audioSource: {fileID: 0}
 --- !u!65 &1057654061
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27996,6 +28003,7 @@ MonoBehaviour:
   burner2: {fileID: 2095791683}
   burner3: {fileID: 2095791683}
   burner4: {fileID: 2095791683}
+  audioSource: {fileID: 0}
 --- !u!65 &1122849936
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28141,6 +28149,7 @@ MonoBehaviour:
   explosion1: {fileID: 1379306057}
   explosion2: {fileID: 1660580992}
   requiredVelocity: 25
+  audioSource: {fileID: 0}
 --- !u!1 &1147724786
 GameObject:
   m_ObjectHideFlags: 0
@@ -28309,6 +28318,7 @@ MonoBehaviour:
   burner2: {fileID: 1005004983}
   burner3: {fileID: 1005004983}
   burner4: {fileID: 1005004983}
+  audioSource: {fileID: 0}
 --- !u!65 &1196868798
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31333,6 +31343,7 @@ MonoBehaviour:
   burner2: {fileID: 112275647}
   burner3: {fileID: 112275647}
   burner4: {fileID: 112275647}
+  audioSource: {fileID: 0}
 --- !u!65 &1310933543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33934,6 +33945,7 @@ MonoBehaviour:
   burner2: {fileID: 479998081}
   burner3: {fileID: 479998081}
   burner4: {fileID: 479998081}
+  audioSource: {fileID: 0}
 --- !u!65 &1377694039
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36433,6 +36445,7 @@ MonoBehaviour:
   burner2: {fileID: 718467964}
   burner3: {fileID: 718467964}
   burner4: {fileID: 718467964}
+  audioSource: {fileID: 0}
 --- !u!65 &1471166880
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41576,6 +41589,7 @@ MonoBehaviour:
   burner2: {fileID: 449631974}
   burner3: {fileID: 449631974}
   burner4: {fileID: 449631974}
+  audioSource: {fileID: 0}
 --- !u!65 &1667677223
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41697,6 +41711,7 @@ MonoBehaviour:
   burner2: {fileID: 1766530910}
   burner3: {fileID: 1766530910}
   burner4: {fileID: 1766530910}
+  audioSource: {fileID: 0}
 --- !u!65 &1674651878
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41818,6 +41833,7 @@ MonoBehaviour:
   burner2: {fileID: 92398126}
   burner3: {fileID: 92398126}
   burner4: {fileID: 92398126}
+  audioSource: {fileID: 0}
 --- !u!65 &1688115925
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44713,6 +44729,7 @@ MonoBehaviour:
   burner2: {fileID: 1292274359}
   burner3: {fileID: 1292274359}
   burner4: {fileID: 1292274359}
+  audioSource: {fileID: 0}
 --- !u!65 &1757066349
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47505,6 +47522,7 @@ MonoBehaviour:
   burner2: {fileID: 651639449}
   burner3: {fileID: 651639449}
   burner4: {fileID: 651639449}
+  audioSource: {fileID: 0}
 --- !u!65 &1816613768
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47939,6 +47957,7 @@ MonoBehaviour:
   burner2: {fileID: 1740833793}
   burner3: {fileID: 1740833793}
   burner4: {fileID: 1740833793}
+  audioSource: {fileID: 0}
 --- !u!65 &2042279749
 BoxCollider:
   m_ObjectHideFlags: 0

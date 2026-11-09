@@ -38,10 +38,10 @@ public class ActualCarController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F)) { playerDriving = false; playerCollider.enabled = true; playerCollider.transform.position += Vector3.up; }
 
-            if (Input.GetKey(KeyCode.W)) rb.AddForce(rb.transform.forward * drivingForce);
-            if (Input.GetKey(KeyCode.S)) rb.AddForce(-rb.transform.forward * drivingForce);
-            if (Input.GetKey(KeyCode.A)) rb.AddForceAtPosition(-rb.transform.right * steeringForce, steeringPoint.position);
-            if (Input.GetKey(KeyCode.D)) rb.AddForceAtPosition(rb.transform.right * steeringForce, steeringPoint.position);
+            if (Input.GetKey(KeyCode.W)) rb.AddForce(rb.transform.forward * drivingForce * Time.deltaTime);
+            if (Input.GetKey(KeyCode.S)) rb.AddForce(-rb.transform.forward * drivingForce * Time.deltaTime);
+            if (Input.GetKey(KeyCode.A)) rb.AddForceAtPosition(-rb.transform.right * steeringForce * Time.deltaTime, steeringPoint.position);
+            if (Input.GetKey(KeyCode.D)) rb.AddForceAtPosition(rb.transform.right * steeringForce * Time.deltaTime, steeringPoint.position);
 
             rb.AddForce(-rb.transform.right * Vector3.Dot(rb.linearVelocity, rb.transform.right) * sidewaysFriction);
             //character.transform.rotation += rb.angularVelocity
