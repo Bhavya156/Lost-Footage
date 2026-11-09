@@ -61,6 +61,9 @@ public class PlayerMovementTutorial : MonoBehaviour
             rb.linearDamping = groundDrag;
         else
             rb.linearDamping = 0;
+
+        //for falling through the map
+        if (transform.position.y < -20) transform.position = new Vector3(transform.position.x, 5, transform.position.z);
     }
 
     private void FixedUpdate()
