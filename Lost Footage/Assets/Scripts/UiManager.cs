@@ -162,6 +162,7 @@ public class UiManager : MonoBehaviour
     public void RestartBtn()
     {
         AudioManager.Instance.OnBtnClickAudio();
+        GameManager.Instance.Reset();
         Time.timeScale = 1f;
         CursorLockState(0);
         SceneChanger.Instance.LoadGameScene(SceneManager.GetActiveScene().buildIndex);
@@ -185,6 +186,7 @@ public class UiManager : MonoBehaviour
     {
         AudioManager.Instance.OnBtnClickAudio();
         Time.timeScale = 1f;
+        GameManager.Instance.Reset();
         CursorLockState(0);
         SceneChanger.Instance.LoadGameScene(0);
     }
@@ -255,6 +257,7 @@ public class UiManager : MonoBehaviour
         else if(endGameTimer > 8f)
         {
             Cursor.lockState = CursorLockMode.None;
+            GameManager.Instance.Reset();
             SceneChanger.Instance.LoadGameScene(0);
             //load main menu and reset
         }

@@ -119,4 +119,17 @@ public class GameManager : MonoBehaviour
     {
         burningBuildings.Add(burningBuilding);
     }
+
+    public void Reset()
+    {
+        catInTree = false;
+        targetCat = null;
+        gameState = GameState.catPhoto;
+        buildingBurning = false;
+        burningBuildings = new List<GameObject>();
+        bankBroken = false;
+        triggerTruck = false;
+        triggerPlane = false;
+    }
 }
+
