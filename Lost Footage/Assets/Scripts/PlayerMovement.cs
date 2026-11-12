@@ -28,9 +28,6 @@ public class PlayerMovementTutorial : MonoBehaviour
     public LayerMask whatIsGround;
     bool grounded;
 
-    [Header("Animation")]
-    public Animator playerAnimator;
-
     public Transform orientation;
 
     float horizontalInput;
@@ -78,7 +75,8 @@ public class PlayerMovementTutorial : MonoBehaviour
 
         float speed = new Vector2(horizontalInput, verticalInput).normalized.magnitude;
 
-        playerAnimator.SetFloat("Speed", speed);
+        // playerAnimator.SetFloat("Speed", speed);
+        AnimationController.Instance.PlayPlayerAnim(speed);
 
         // if (speed > 0)
         // {

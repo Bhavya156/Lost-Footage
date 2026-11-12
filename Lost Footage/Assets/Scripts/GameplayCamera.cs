@@ -9,7 +9,6 @@ public class GameplayCamera : MonoBehaviour
     [SerializeField] Transform cameraDeployer;
     [SerializeField] CameraMover cameraMover;
     [SerializeField] Camera handicam;
-    [SerializeField] private Animator playerAnim;
 
     bool thrown;
     float timer;
@@ -36,7 +35,9 @@ public class GameplayCamera : MonoBehaviour
                 if (!inPlay)
                 {
                     AudioManager.Instance.PlaySound(AudioManager.Instance.uiSfxSource, AudioManager.Instance.pickup);
-                    playerAnim.SetBool("Grab", true);
+                    // playerAnim.SetBool("Grab", true);
+                    AnimationController.Instance.PlayGrabAnim();
+                    AnimationController.Instance.PlayHoldingAnim(true);
                     handicam.gameObject.SetActive(true);
                     mr.enabled = true;
                     cameraMover.enabled = true;
@@ -50,7 +51,9 @@ public class GameplayCamera : MonoBehaviour
                     thrown = true;
                     rb.AddForce(new Vector3(0, 0.8f, Random.Range(-2f, 2f)) * throwingForce);
                     cameraMover.enabled = false;
-                    playerAnim.SetBool("Grab", false);
+                    // playerAnim.SetBool("Grab", false);
+                    AnimationController.Instance.PlayHoldingAnim(false);
+                    AnimationController.Instance.PlayThrowAnim();
                     handicam.gameObject.SetActive(false);
                 }
             }

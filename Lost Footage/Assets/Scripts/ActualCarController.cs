@@ -36,7 +36,7 @@ public class ActualCarController : MonoBehaviour
             playerCollider.enabled = false;
             character.transform.position = seat.position;
 
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.F)) { playerDriving = false; playerCollider.enabled = true; playerCollider.transform.position += Vector3.up; }
+            if (Input.GetKeyDown(KeyCode.F)) { playerDriving = false; playerCollider.enabled = true; playerCollider.transform.position += Vector3.up; }
 
             if (Input.GetKey(KeyCode.W)) rb.AddForce(rb.transform.forward * drivingForce * Time.deltaTime);
             if (Input.GetKey(KeyCode.S)) rb.AddForce(-rb.transform.forward * drivingForce * Time.deltaTime);
